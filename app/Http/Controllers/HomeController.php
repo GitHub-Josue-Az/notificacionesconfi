@@ -47,11 +47,11 @@ class HomeController extends Controller
 
 
      // ESTO ENCRIPTA LA COLUMNA PASSWOR DE LA BASE DE DATOS DE USER
-    /*public function pruebita2()
+    public function pruebita2()
     {
 
-        $i=9;
-        for ($i=9; $i < 10; $i++) { 
+        $i=1;
+        for ($i=1; $i < 2; $i++) { 
            $cupones=User::findOrFail($i);
            $jeje = $cupones->password;
            $data = User::where('id', $i)->update(array("password" => bcrypt($jeje)));
@@ -59,7 +59,7 @@ class HomeController extends Controller
 
 
         return $jeje;
-    }*/
+    }
 
     public function prutrue(){
             $hoy = Carbon::now('America/Lima');
