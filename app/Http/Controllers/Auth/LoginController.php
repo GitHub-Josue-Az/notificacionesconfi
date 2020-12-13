@@ -36,4 +36,25 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+    protected function authenticated(Request $request, $user)
+    {
+        return redirect()->intended($this->redirectPath());
+    }
+
+
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('usuario', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->route('home');
+        }
+
+        return redirect()->route('logempre')->withErrors('Incorrecto.Verifique e ingrese nuevamente sus crendeciales');
+    }
+
+
 }

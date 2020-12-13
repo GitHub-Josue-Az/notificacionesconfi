@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 Route::post('login','Api\AuthController@login');
 
 //RESOURCE TIENE VARIAS RUTAS
-	Route::resource('productos', 'Api\ProductosController');
+Route::resource('productos', 'Api\ProductosController');
 
 
 Route::middleware('auth:api')->group(function () 
