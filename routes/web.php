@@ -13,7 +13,17 @@ Route::get('felicitadores', 'HomeController@felicitadores')->name('felicitadores
 
 
 
-Auth::routes();
+/*Auth::routes();*/
+
+Route::get('login','Auth\LoginController@showLoginForm')->name('login');
+
+Route::post('login','Auth\LoginController@authenticate')->name('logii');
+
+Route::post('logout','Auth\LoginController@logout')->name('logout');
+
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

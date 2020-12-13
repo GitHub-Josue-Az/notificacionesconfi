@@ -15,7 +15,8 @@
         "laravel/tinker": "^1.0",
         "lcobucci/jwt": "3.3.3",
         "miladrahimi/larajwt": "2.*",
-        "nesbot/carbon": "^2.41"
+        "nesbot/carbon": "^2.41",
+        "rap2hpoutre/laravel-log-viewer": "^1.7"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
