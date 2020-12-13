@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = 'login';
 
     /**
      * Create a new controller instance.
@@ -54,7 +54,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        return redirect()->route('/')->withErrors('Incorrecto.Verifique e ingrese nuevamente sus crendeciales');
+        return redirect()->route('login')->withErrors('Incorrecto.Verifique e ingrese nuevamente sus crendeciales');
     }
 
 

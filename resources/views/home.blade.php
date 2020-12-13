@@ -9,7 +9,7 @@
 
         <div class="card-body">
             <div class="card-body text-center">
-                <h3 class="text-bold">Bienvenido {{Auth::user()->role->title}} {{Auth::user()->nombres}}!!</h3>
+                <h3 class="text-bold">Bienvenido  {{Auth::user()->nombres}}!!</h3>
             </div>
         </div>
 
