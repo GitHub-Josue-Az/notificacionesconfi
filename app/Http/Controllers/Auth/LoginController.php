@@ -38,23 +38,5 @@ class LoginController extends Controller
     }
 
 
-    protected function authenticated(Request $request, $user)
-    {
-        return redirect()->intended($this->redirectPath());
-    }
-
-
-    public function authenticate(Request $request)
-    {
-        $credentials = $request->only('codigo', 'password');
-
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            return redirect()->route('home');
-        }
-
-        return redirect()->route('/')->withErrors('Incorrecto.Verifique e ingrese nuevamente sus crendeciales');
-    }
-
 
 }

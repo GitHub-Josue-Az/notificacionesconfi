@@ -45,7 +45,7 @@
                                 <span class="logo-single"></span>
                             </a>
                             <h6 class="mb-4">Login</h6>
-                            <form method="post" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('login') }}">
                                {!! csrf_field() !!}
     
                                
