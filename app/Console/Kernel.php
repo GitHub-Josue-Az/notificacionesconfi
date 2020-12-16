@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\listadocumples;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,6 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+        listadocumples::class
     ];
 
     /**
@@ -21,10 +23,14 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
-    protected function schedule(Schedule $schedule)
+     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+
+        /* Funciona */
+        $schedule->command('user:cumples')->timezone('America/Lima')
+         ->at('20:16');
+
+         
     }
 
     /**

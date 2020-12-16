@@ -34,6 +34,7 @@
                             <th width="80">Mostrar</th>
                             <th width="80">Editar</th>
                             <th width="80">Eliminar</th>
+                            
                         </tr>
 
                                 </thead>
@@ -46,7 +47,7 @@
                             <td>{{ $confe->nombre }}</td>
                             <td>{!! $confe->estadoTag !!}</td>
                             {{-- <td>{{ $confe->capacidad }}</td> --}}
-                            <td>{{ $confe->limithour->format('Y-m-d H:i') }}</td><th></th><th></th>
+                            <td>{{ $confe->limithour->format('Y-m-d H:i') }}</td><td></td><td></td>
                             {{-- <td> {{ $confe->capacidad - $confe->limite  }} </td> --}}
                             {{-- <td><a href="{{ route('admin.confe.soli', [$confe->id]) }}" class="btn btn-primary"><i class="fas fa-edit"></i> Solicitudes</a></td> --}}
                             <td><a href="{{ route('admin.conferencias.show', [$confe->id]) }}" class="btn btn-info"><i class="fas fa-edit"></i> Mostrar</a></td>
