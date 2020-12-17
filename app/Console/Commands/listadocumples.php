@@ -42,7 +42,7 @@ class listadocumples extends Command
     public function handle()
     {
         
-         $number = 1;
+        /* $number = 1;
 
         if ($number == 1) {
             
@@ -62,15 +62,15 @@ class listadocumples extends Command
                     'body' =>  'two',
                 ])->send();
 
-        return;
+        return;*/
 
 
         
-        /* $diassone = Carbon::now('America/Lima');  
+       $diassone = Carbon::now('America/Lima');  
        $diahoy = $diassone->day;          
-       $diasdelmes = $diassone->daysInMonth;      
+       /*$diasdelmes = $diassone->daysInMonth;    */  
 
-       if ($diahoy == $diasdelmes) {
+       /*if ($diahoy == $diasdelmes) {*/
 
             $diaAdelantadot = $diassone->addDay();    
             $mesAdelantadot = $diaAdelantadot->month;  
@@ -100,9 +100,9 @@ class listadocumples extends Command
     
 
            return ;
-        }
+       /* }*/
 
-       $diasstwo = Carbon::now('America/Lima');  
+       /*$diasstwo = Carbon::now('America/Lima');  
        $diaAdelantado = $diasstwo->addDay();       
        $mesAdelantado = $diaAdelantado->month;      
 
