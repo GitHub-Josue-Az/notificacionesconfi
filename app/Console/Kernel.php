@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
 
         /* Funciona */
         $schedule->command('user:cumples')->timezone('America/Lima')
-         ->at('20:20');
+         ->at('20:37');
 
          
     }
