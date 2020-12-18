@@ -26,15 +26,22 @@ function __construct(){
        $diassone = Carbon::now('America/Lima');  
        $diahoy = $diassone->day;       
        $meshoy = $diassone->month;      
-       $diasdelmes = $diassone->daysInMonth;      
+      /* $diasdelmes = $diassone->daysInMonth; */     
 
        $cumplesone  = Cumple::with('user')->whereRaw('month(fechacumples) = '.$meshoy)             
                             ->whereRaw('day(fechacumples) ='.$diahoy)
                             ->where('deleted',1)
                             ->where('estado',1)->get(); 
 
+          if (count($cumplesone) > 0 ){
+            foreach ($cumplesone as $key => $cumples) {
+                $cumples->dia = "hoy";
+            }
+         }
+
        // TRAE LOS USUARIOS DEL PRIMER DIA DEL MES, EN CASO ESTEMOS FIN DE MES
-       if ($diahoy == $diasdelmes) {
+       /*if ($diahoy == $diasdelmes) {*/
+
 
             $diaAdelantadot = $diassone->addDay();    
             $mesAdelantadot = $diaAdelantadot->month;  
@@ -43,10 +50,18 @@ function __construct(){
                             ->whereRaw('day(fechacumples) ='.$diaAdelantadot->day)
                             ->where('deleted',1)
                             ->where('estado',1)->get(); 
-       
-         $uniontwo = $cumplesone->mergeRecursive($cumpletwo);
+
+         if (count($cumpletwo) > 0 ){
+            foreach ($cumpletwo as $key => $cumpleso) {
+                $cumpleso->dia = "mañana";
+            }
+         }
+
+      $uniontwo = $cumplesone->mergeRecursive($cumpletwo);
+         //ARRAY VACIA SI NO HAY NADA
          return response()->json($uniontwo, 200);
-       }
+
+       /*}
 
        $diasstwo = Carbon::now('America/Lima');  
        $diaAdelantado = $diasstwo->addDay();       
@@ -58,7 +73,7 @@ function __construct(){
                             ->where('estado',1)->get();                             
 
          $uniontwo = $cumplesone->mergeRecursive($cumpletwo);
-          return response()->json($uniontwo, 200);
+          return response()->json($uniontwo, 200);*/
     }
     
 

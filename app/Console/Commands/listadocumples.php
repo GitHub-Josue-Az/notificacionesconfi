@@ -94,7 +94,7 @@ class listadocumples extends Command
                 ->to($recipients) 
                 ->notification([
                     'title' => 'Cumpleaños para mañana 🎊🎊🎊',
-                    'body' =>  $cumpleanero,
+                    'body' => "Si deseas escribele un mensaje, le llegara una carta"."\n".$cumpleanero,
                 ])->send();
             }                  
     
