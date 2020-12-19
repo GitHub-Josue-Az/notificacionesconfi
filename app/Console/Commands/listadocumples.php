@@ -86,7 +86,7 @@ class listadocumples extends Command
                 foreach ($cumpletwo as $key => $value) {
                    
              $recipients = User::whereNotNull('device_token')->pluck('device_token')->toArray();     
-            $cumpleanero .= "🎉".$value->user->nombres."\n";
+            $cumpleanero .= "  🎉 ".$value->user->nombres."\n";
 
                 }
 
@@ -94,7 +94,7 @@ class listadocumples extends Command
                 ->to($recipients) 
                 ->notification([
                     'title' => 'Cumpleaños para mañana 🎊🎊🎊',
-                    'body' => "Si deseas escribele un mensaje, le llegara una carta"."\n".$cumpleanero,
+                    'body' => "Si deseas escribele un mensaje, le llegara una carta. "."\n".$cumpleanero,
                 ])->send();
             }                  
     

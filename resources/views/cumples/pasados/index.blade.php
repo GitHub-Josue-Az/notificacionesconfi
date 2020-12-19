@@ -24,10 +24,11 @@
 
                                 <thead>
                                    <tr>
+                                    <th width="10">
                             <th width="150">Nombres</th>
                             <th width="150">Jefe</th>
                             <th width="80">Numero</th>
-                            <th width="80">Fecha Cumpleaños</th><th  width="10"></th><th width="10"></th><th width="10">
+                            <th width="80">Fecha Cumpleaños</th><th  width="10"></th><th width="10"></th>
                             </th><th width="10"></th><th width="10"></th>
                             <th width="80">Comentarios</th>
                         </tr>
@@ -37,10 +38,11 @@
                                 <tbody>
                         @foreach ($cumplespasados as $cum)
                              <tr>
+                                <td></td>
                             <td>{{ $cum->user->nombres }}</td>
                             <td>{{ $cum->user->jefe->nombres }}</td>
                             <td>{{ $cum->user->numero }}</td>
-                            <td>{{ $cum->fechacumples }}</td><th></th><th></th><th></th><th></th><th></th>
+                            <td>{{ $cum->fechacumples }}</td><td></td><td></td><td></td><td></td>
                             <td><a href="{{ route('admin.cumple.show2', [$cum->id]) }}" class="btn btn-primary"><i class="fas fa-primary"></i> Comentarios</a></td>
                             
 

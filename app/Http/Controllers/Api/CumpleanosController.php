@@ -35,7 +35,7 @@ function __construct(){
 
           if (count($cumplesone) > 0 ){
             foreach ($cumplesone as $key => $cumples) {
-                $cumples->dia = "hoy";
+                $cumples->dia = "Hoy ";
             }
          }
 
@@ -53,7 +53,7 @@ function __construct(){
 
          if (count($cumpletwo) > 0 ){
             foreach ($cumpletwo as $key => $cumpleso) {
-                $cumpleso->dia = "mañana";
+                $cumpleso->dia = "Mañana ";
             }
          }
 

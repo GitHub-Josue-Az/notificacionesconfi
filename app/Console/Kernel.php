@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\estadocumples;
 use App\Console\Commands\listadocumples;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -14,7 +15,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        listadocumples::class
+        listadocumples::class,
+        estadocumples::class
     ];
 
     /**
@@ -28,6 +30,7 @@ class Kernel extends ConsoleKernel
 
         /* Funciona */      
         $schedule->command('usuarios:cumples')->timezone('America/Lima')->at('11:25');
+        $schedule->command('estado:cumples')->timezone('America/Lima')->at('01:46');
 
          
     }
