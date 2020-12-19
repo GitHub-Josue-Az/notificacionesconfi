@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Cumple;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class estadocumples extends Command
