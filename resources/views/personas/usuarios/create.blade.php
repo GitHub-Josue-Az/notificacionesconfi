@@ -93,11 +93,11 @@
                         <div class="form-group">
 
                                  <div>
-                                  <input type="radio" id="usuario" name="tipo" value="1"
-                                         checked>
+
+                                  <input type="radio" id="usuario" name="roles_id" value="1">
                                   <label for="usuario">Administrador </label>
 
-                                  <input type="radio" id="admin" name="tipo" value="2">
+                                  <input type="radio" id="admin" name="roles_id" value="2" checked>
                                   <label for="admin">Usuario</label>
 
                                 </div>

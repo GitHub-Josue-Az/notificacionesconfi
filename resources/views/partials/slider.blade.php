@@ -63,11 +63,11 @@
                         </a>
                     </li>
 
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('admin.administradores.index') }}">
                             <i class="iconsminds-engineering"></i> <span class="d-inline-block">Administradores</span>
                         </a>
-                    </li> 
+                    </li>  --}}
                 </ul>
 
                 <ul class="list-unstyled" data-link="cumpleaños">

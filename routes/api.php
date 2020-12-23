@@ -18,7 +18,7 @@ Route::middleware('auth:api')->group(function ()
 
 	/* Conferencias */
 	Route::get('conferenciaslist', 'Api\ConferenciasController@conferenciaslist');
-	Route::post('conferenciasolicitud','Api\ConferenciasController@solicitudes');
+	/*Route::post('conferenciasolicitud','Api\ConferenciasController@solicitudes');*/
 
 	/* FELICITACIONES */
 	Route::get('felicitadoreslist', 'Api\FelicitacionesController@felicitadoreslist');

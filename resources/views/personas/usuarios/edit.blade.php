@@ -51,18 +51,6 @@
                                  {!! $errors->first('password_confirmation','<span class=error>:message</span>') !!}
                                 </div>
 
-                                <div class="form-group has-float-label">
-                                       <div class="input-group date">
-                                        <label>Fecha de cumpleaños</label>
-
-            <input type="text"  class="form-control @error('fechacumples') is-invalid @enderror " maxlength="50"  id="fechacumples" name="fechacumples" >
-                                            <span class="input-group-text input-group-append input-group-addon">
-                                                <i class="simple-icon-calendar"></i>
-                                            </span>
-                                        </div>
-                                {!! $errors->first('fechacumples','<span class=error>:message</span>') !!}
-                                </div>
-
 
                                 <div class="form-group has-float-label">
                                    <input type="number" value="{{$usuarios->numero}}" class="form-control @error('numero') is-invalid @enderror" maxlength="50"  id="numero" name="numero" placeholder="">
@@ -99,6 +87,53 @@
                     </div>
 
               </div>
+
+
+              <div class="col-12 col-lg-6">
+                      <div class="card mb-4">
+                       <div class="card-body">
+
+
+                            <h4> Tipo de usuario </h4>
+
+                      <div>
+                        <div class="form-group">
+
+                            @foreach ($rol as $roles)
+
+                              <div>
+         <input type="radio" id="usuario" name="roles_id" value="{{$roles->id}}" {{ $roles->id==$usuarios->roles_id?'checked':'' }}>
+                                  <label for="usuario"> {{ $roles->title }} </label>
+                              </div>
+                             @endforeach
+                            
+                                 
+                        
+                                <p> El administrador es un usuario pero con los privilegios de  administrador del sistema </p>
+                        </div>
+                    </div>
+
+
+                          <br>
+
+                               <div class="form-group has-float-label">
+                                       <div class="input-group date">
+                                        <label>Fecha de cumpleaños</label>
+
+            <input type="text"  class="form-control @error('fechacumples') is-invalid @enderror " maxlength="50"  id="fechacumples" name="fechacumples" >
+                                            <span class="input-group-text input-group-append input-group-addon">
+                                                <i class="simple-icon-calendar"></i>
+                                            </span>
+                                        </div>
+                                {!! $errors->first('fechacumples','<span class=error>:message</span>') !!}
+                                </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+
+
              </div>
              </form>
 

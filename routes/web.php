@@ -55,7 +55,6 @@ Route::get('send/fcm/general', 'Dashboard\DashboardController@generalview')->nam
 						/* USUARIOS */																					
 Route::resource('usuarios', 'Usuarios\UsuariosController');
 Route::resource('jefes', 'Usuarios\JefesController');
-Route::resource('administradores', 'Usuarios\AdministradoresController');
 Route::put('usu/{idusu}', 'Usuarios\UsuariosController@update2')->name('usu.update2');
 Route::put('jef/{idjef}', 'Usuarios\JefesController@update2')->name('jef.update2');
 
@@ -86,7 +85,7 @@ Route::put('conferechazo/{idconfe}/{idusu}', 'Conferencias\ConferenciasControlle
 
 /*Route::get('confe/{idsoli}/solicitudes', 'Conferencias\ConferenciasController@solicitudes')->name('confe.soli'); LISTADO SOLICITUDES*/
 Route::put('confe/{idconfe}', 'Conferencias\ConferenciasController@update2')->name('confe.update2');	//ELIMINAR CONFERENCIA
-Route::resource('reservas', 'Conferencias\ReservasController');
+/*Route::resource('reservas', 'Conferencias\ReservasController');*/
 
 
 

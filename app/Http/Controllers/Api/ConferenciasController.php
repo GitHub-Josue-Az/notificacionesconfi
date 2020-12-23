@@ -24,7 +24,7 @@ class ConferenciasController extends Controller
     }
 
 
-    public function solicitudes(Request $request){
+   /* public function solicitudes(Request $request){
 
     	$usuario = Auth::guard('api')->user();
     	$conferencia =  $request->input('conferencia');
@@ -35,14 +35,14 @@ class ConferenciasController extends Controller
 
     	$pivote  = $usuario->conferencias()->where('conferencias_id',$conferencia)->first();
 
-        /* HACER UN SYNC */
-        /*if (!is_null($pivote)) {
+         HACER UN SYNC 
+        if (!is_null($pivote)) {
             if ($pivote->estado == 2 && $limit < $capaci ) {
                 
             }
-        }*/
+        }
 
-        /* AL SER UN OBJETO DEVUELVE NULO MAS NO [] CUANDO ES UN  GET */
+         AL SER UN OBJETO DEVUELVE NULO MAS NO [] CUANDO ES UN  GET 
     	if  ($pivote == null ) {
     		if ($idconferencia->estado == 1 && $limit < $capaci ) {
 				$usuario->conferencias()->attach($idconferencia->id);
@@ -53,7 +53,7 @@ class ConferenciasController extends Controller
     	}	
 
     	return response()->json(['error' => 'Usuario y/o clave inválido'],401);
-    }
+    }*/
 
 
 

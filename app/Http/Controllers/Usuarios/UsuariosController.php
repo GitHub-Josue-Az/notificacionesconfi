@@ -7,6 +7,7 @@ use App\Models\Cargo;
 use App\Models\Cumple;
 use App\Models\Felicitadore;
 use App\Models\Jefe;
+use App\Models\Role;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -46,7 +47,7 @@ class UsuariosController extends Controller
 
         $dt = new Carbon($request->fechacumples);
 
-        $request->request->add(['roles_id' => $request->tipo]); 
+        /*$request->request->add(['roles_id' => $request->tipo]); */
         
         
         $user = User::create($request->all());
@@ -87,7 +88,8 @@ class UsuariosController extends Controller
          $usuarios=User::findOrFail($id);
          $jefes=Jefe::all();
         $cargos=Cargo::where('id','<>',6)->get();
-         return view('personas.usuarios.edit',compact('usuarios','jefes','cargos'));
+        $rol = Role::all();
+         return view('personas.usuarios.edit',compact('usuarios','jefes','cargos','rol'));
     }
     
     
@@ -128,7 +130,6 @@ class UsuariosController extends Controller
           
          Cumple::where('users_id',$id)->update([
           "fechacumples"=> $dttwo,
-            "deleted" => 1,
             "estado" => $est,
          ]);
 
@@ -150,7 +151,7 @@ class UsuariosController extends Controller
         
         //CUMPLE Y FELICITADORE TAMBIEN
          Cumple::where('users_id',$idusu)->update(["deleted"=>0]);
-         Felicitadore::where('users_id',$idusu)->update(["deleted"=>0]);
+         Felicitadore::where('users_id',$idusu)->update(["delete"=>0]);
        
          return redirect()->route('admin.usuarios.index');
     }
