@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Comcumple;
 use App\Models\Cumple;
 use App\Models\User;
-use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Mail\CumpleanoMail;
+use Illuminate\Support\Facades\Mail;
 
 class CumplesController extends Controller
 {
@@ -161,14 +161,16 @@ class CumplesController extends Controller
     public function show3($id){
 
 
-      $usuario   = User::where('deleted',1)->first();
+      $usuario   = User::where('deleted',1)->where('id',$id)->first();
 
             if (is_null($usuario->email)) {
                    return back()->withErrors('El usuario no posee un correo');           
           }       
 
+
+          //ruthalva73@gmail.com
            Mail::to($usuario->email)
-                    ->bcc(['ruthalva73@gmail.com'])
+                    ->bcc(['josue.alva@tecsup.edu.pe'])
                     ->queue(new CumpleanoMail($usuario));
 
         return back()->with('success', 'Email enviado');
