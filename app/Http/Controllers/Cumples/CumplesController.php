@@ -8,7 +8,7 @@ use App\Models\Cumple;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Mail\Mail;
+use App\Mail\Tarjeta;
 use Illuminate\Support\Facades\Mail;
 
 class CumplesController extends Controller
@@ -171,7 +171,7 @@ class CumplesController extends Controller
           //ruthalva73@gmail.com
            Mail::to($usuario->email)
                     ->bcc(['ruthalva73@gmail.com'])
-                    ->queue(new Mail($usuario));
+                    ->queue(new Tarjeta($usuario));
 
         return back()->with('success', 'Tarjeta de felicitación enviada');
     }

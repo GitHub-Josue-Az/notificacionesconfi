@@ -8,12 +8,11 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\User;
 
-
-class Mail extends Mailable
+class Tarjeta extends Mailable
 {
     use Queueable, SerializesModels;
 
-     public $usuario;
+    public $usuario;
 
     public function __construct(User $usuario)
     {
