@@ -176,12 +176,11 @@ class CumplesController extends Controller
         return back()->with('success', 'Email enviado');
     }
 
-    public function tarjeta($idcumple){
+   /* public function tarjeta($idcumple){
 
-      // Listado de tarjetas con deleted 1 
        return back()->with('success', 'Yaya');
     }
-
+*/
 
 
     public function destroy($id)
