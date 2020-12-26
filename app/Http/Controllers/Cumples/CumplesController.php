@@ -159,7 +159,7 @@ class CumplesController extends Controller
 
 
 
-    public function enviomail($idcumpleanero){
+    public function enviomail($idusu){
 
 
       return redirect()->route('admin.cumples.index');
