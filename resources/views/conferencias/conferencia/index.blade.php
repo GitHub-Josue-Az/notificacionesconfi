@@ -24,11 +24,11 @@
 
                                 <thead>
                                    <tr>
-                            <th>Imagen</th>
+                            <th>Imagen</th><th></th>
                             <th>Entidad</th>
                             <th>Nombre</th>
                             <th>Estado</th>
-                            <th>Fecha Limite</th><th></th><th></th>
+                            <th>Fecha Limite</th><th></th>
                             {{--  <th>Disponibles</th> --}}
                            {{--  <th width="80">Solicitudes</th> --}}
                             <th width="80">Mostrar</th>
@@ -42,12 +42,12 @@
                                 <tbody>
                         @foreach ($conferencia as $confe)
                              <tr>
-                    <td><img  src="{{route('confe.image', [$confe->id])}}" width="130px" height="120px" ></td>
+                    <td><img  src="{{route('confe.image', [$confe->id])}}" width="130px" height="120px" ></td><td></td>
                              <td>{{ $confe->entidad }}</td>
                             <td>{{ $confe->nombre }}</td>
                             <td>{!! $confe->estadoTag !!}</td>
                             {{-- <td>{{ $confe->capacidad }}</td> --}}
-                            <td>{{ $confe->limithour->format('Y-m-d H:i') }}</td><td></td><td></td>
+                            <td>{{ $confe->limithour->format('Y-m-d H:i') }}</td><td></td>
                             {{-- <td> {{ $confe->capacidad - $confe->limite  }} </td> --}}
                             {{-- <td><a href="{{ route('admin.confe.soli', [$confe->id]) }}" class="btn btn-primary"><i class="fas fa-edit"></i> Solicitudes</a></td> --}}
                             <td><a href="{{ route('admin.conferencias.show', [$confe->id]) }}" class="btn btn-info"><i class="fas fa-edit"></i> Mostrar</a></td>

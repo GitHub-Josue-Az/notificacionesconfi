@@ -72,6 +72,10 @@ Route::put('camp/{idcamp}',  'Cuponera\CamposController@update2')->name('camp.up
 
 					/* Cumpleaños */
 Route::resource('cumples', 'Cumples\CumplesController');
+Route::get('enviomail/{idcumpleanero}', 'Cumples\CumplesController@enviomail')->name('cumples.enviomail');
+Route::get('tarjeta/{idcumple}', 'Cumples\CumplesController@tarjeta')->name('cumples.tarjeta');
+
+
 Route::get('cumplespasados', 'Cumples\CumplesController@index2')->name('cumple.index2');
 Route::get('cumplespasados/{id}', 'Cumples\CumplesController@show2')->name('cumple.show2');
 Route::put('cum/{idcumples}', 'Cumples\CumplesController@update2')->name('cum.update2');

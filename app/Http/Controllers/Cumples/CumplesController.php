@@ -8,6 +8,7 @@ use App\Models\Cumple;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Mail\CumpleanoMail;
 
 class CumplesController extends Controller
 {
@@ -153,6 +154,31 @@ class CumplesController extends Controller
          ]); 
        
          return redirect()->route('admin.cumples.index');
+    }
+
+
+
+    public function enviomail($idcumpleanero){
+
+      // Traer el correo del usuario correspondiente al cumpleaños y luego enviarle un email con todas las tarjetas
+      $usuario   = User::where('deleted',1)->first();
+
+        //SI en caso el usuario no tiene pues reenviar con mensaje de error
+            if (!is_null($usuario)) {
+                   return back()->withErrors('El usuario no posee un correo');           
+          }       
+
+           Mail::to($cumpleaneoro->email)
+                    ->bcc(['ruthalva73@gmail.com'])
+                    ->queue(new CumpleanoMail($usuario));
+
+        return back()->with('success', 'Email enviado');
+    }
+
+    public function tarjeta(){
+
+      // Listado de tarjetas con deleted 1 
+
     }
 
 

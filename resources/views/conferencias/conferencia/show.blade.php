@@ -44,9 +44,9 @@
                                           {{--   <p class="text-muted text-small mb-2">Capacidad</p>
                                             <p class="mb-3"> {{ $conferencia->capacidad }} </p> --}}
 
-                                            <p class="text-muted text-small mb-2"> Cupos disponibles </p>
+                                            {{-- <p class="text-muted text-small mb-2"> Cupos disponibles </p>
                                             <p class="mb-3"> {{ $conferencia->capacidad - $conferencia->limite }} </p>  
-
+ --}}
                                             <p class="text-muted text-small mb-2">Hora limite</p>
                                             <p class="mb-3"> {{ $conferencia->limithour }} </p>
 

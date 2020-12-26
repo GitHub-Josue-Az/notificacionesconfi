@@ -1,196 +1,110 @@
   @extends('layouts.app')
 
-
   @section('content')
 
           <div class="container-fluid">
 
- <form  action="{{ route('admin.conferencias.update',$alumnos->id) }}" method="post" enctype="multipart/form-data" >
+ 
+ <form  action="{{ route('admin.conferencias.update',$conferencia->id) }}" method="post" enctype="multipart/form-data" >
                                  
                 {!! method_field('PUT') !!}
                 <!--Middleware-->
                {!! csrf_field() !!}
 
-
               <div class="row">
                   <div class="col-12">
-                      <h1>Editar conferencia</h1>
+                      <h1>Modificación de una conferencia</h1>
 
-                      <a class="btn btn-primary float-right"  href="{{ route('admin.conferencias.index') }}"><i class="iconsminds-to-left  "></i>Regresar</a>
+                      <a class="btn btn-primary float-right"  href="{{ route('admin.conferencias.index') }}"><i class="iconsminds-to-left  "></i>Regresar</a>  
 
                       <div class="separator mb-5"></div>
                   </div>
               </div>
 
              <div class="row">
+
                <div class="col-12 col-lg-6">
-              
-                <div class="card mb-4">
+                   <div class="card mb-4">
                         <div class="card-body">
 
-                      <div class="form-group has-float-label">
-                                   <input type="text" value="{{ $alumnos->nombres }}" class="form-control @error('nombres') is-invalid @enderror" maxlength="50"  id="nombres" name="nombres" placeholder="">
-                                    <span>Names</span>
-                           {!! $errors->first('nombres','<span class=error>:message</span>') !!}
-                     </div>   
+                          <img  src="{{route('confe.image', [$conferencia->id])}}" width="130px" height="120px" >
+                          <br><br>
+                          <div class="form-group has-float-label">
+                                   <input type="file" value="{{old('logo')}}" class="form-control @error('logo') is-invalid @enderror" maxlength="50"  id="logo" name="logo" placeholder="">
+                                    <span> Imagen de la conferencia</span>
+                              {!! $errors->first('logo','<span class=error>:message</span>') !!}
+                         </div> 
 
-                     <div class="form-group has-float-label">
-                                   <input type="text" value="{{ $alumnos->entidad }}" class="form-control @error('entidad') is-invalid @enderror" maxlength="50"  id="entidad" name="entidad" placeholder="">
-                                    <span>Names</span>
+                        <div class="form-group has-float-label">
+                                   <input type="text" value="{{old('entidad', $conferencia->entidad)}}" class="form-control @error('entidad') is-invalid @enderror" maxlength="150"  id="entidad" name="entidad" placeholder="">
+                                    <span>Entidad</span>
                            {!! $errors->first('entidad','<span class=error>:message</span>') !!}
-                     </div>   
+                     </div> 
 
+                      <div class="form-group has-float-label">
+                                   <input type="text" value="{{old('nombre',$conferencia->nombre)}}" class="form-control @error('nombre') is-invalid @enderror" maxlength="150"  id="nombre" name="nombre" placeholder="">
+                                    <span>Nombre</span>
+                           {!! $errors->first('nombre','<span class=error>:message</span>') !!}
+                     </div>   
 
                                 <div class="form-group has-float-label">
-                                   <input type="text" value="{{ $alumnos->usuario }}" class="form-control @error('usuario') is-invalid @enderror" maxlength="50"  id="usuario" name="usuario" placeholder="">
-                                    <span>Usuario</span>
-                                     {!! $errors->first('usuario','<span class=error>:message</span>') !!}
+                                   <input type="text" value="{{old('descripcion',$conferencia->descripcion)}}" class="form-control @error('  descripcion') is-invalid @enderror" maxlength="500"  id="  descripcion" name="  descripcion" placeholder="">
+                                    <span>Descripción</span>
+                                     {!! $errors->first('  descripcion','<span class=error>:message</span>') !!}
                                 </div>
                                 
-                                <div class="form-group has-float-label">
-                                   <input type="password"  class="form-control @error('password') is-invalid @enderror" maxlength="50"  id="password" name="password" placeholder="">
-                                   <span>Password</span>
-                                 {!! $errors->first('password','<span class=error>:message</span>') !!}
-                                </div>
+                                {{-- <div class="form-group has-float-label">
+                                   <input type="number" value="{{old('capacidad',2)}}" class="form-control @error('capacidad') is-invalid @enderror" min="2" id="capacidad" name="capacidad" placeholder="">
+                                   <span>Capacidad</span>
+                                 {!! $errors->first('capacidad','<span class=error>:message</span>') !!}
+                                </div> --}}
 
-                                <div class="form-group has-float-label">
-                                   <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" maxlength="50"  id="password_confirmation" name="password_confirmation" placeholder="">
-                                   <span>password_confirmation</span>
-                                 {!! $errors->first('password_confirmation','<span class=error>:message</span>') !!}
-                                </div>
 
-                                <div class="form-group has-float-label">
-                                   <input type="text" value="{{ $alumnos->apellidop }}" class="form-control @error('apellidop') is-invalid @enderror" maxlength="50"  id="apellidop" name="apellidop" placeholder="">
-                              <span>Apellido Paterno</span>
-                               {!! $errors->first('apellidop','<span class=error>:message</span>') !!}
-                                </div>
+                                    {{-- <div class="form-group row mb-1">
+                                        <label class="col-12 col-form-label"> Estado </label>
+                                        <div class="col-12">
+                                            <div class="custom-switch custom-switch-primary mb-2">
+                  <input class="custom-switch-input" id="act" name="act" type="checkbox" checked>
+                                                <label class="custom-switch-btn" for="act"></label>
+                                            </div>
+                                        </div>
+                                    </div> --}}
 
-                                <div class="form-group has-float-label">
-                                   <input type="text" value="{{ $alumnos->apellidom }}" class="form-control @error('apellidom') is-invalid @enderror" maxlength="50"  id="apellidom" name="apellidom" placeholder="">
-                          <span>Apellido Materno</span>
-                           {!! $errors->first('apellidom','<span class=error>:message</span>') !!}
-                                </div>
+                          </div>
+                                {{-- @if($workDay->active) checked @endif --}}
 
-                                <div class="form-group has-float-label">
-                                   <input type="text" value="{{ $alumnos->fechanaci }}" class="form-control @error('fechanaci') is-invalid @enderror" maxlength="50"  id="fechanaci" name="fechanaci" placeholder="">
-                            <span>Fecha nacimiento</span>
-                                {!! $errors->first('fechanaci','<span class=error>:message</span>') !!}
-                                </div>
-
-                                <div class="form-group has-float-label">
-                                   <input type="number" value="{{ $alumnos->celular }}" class="form-control @error('celular') is-invalid @enderror" maxlength="50"  id="celular" name="celular" placeholder="">
-                                     <span>celular</span>
-                                {!! $errors->first('celular','<span class=error>:message</span>') !!}
-                                </div>
-
-                                <div class="form-group has-float-label">
-                                   <input type="number" value="{{ $alumnos->dni }}" class="form-control @error('dni') is-invalid @enderror" maxlength="50"  id="dni" name="dni" placeholder="">
-                                  <span>DNI</span>
-                                {!! $errors->first('dni','<span class=error>:message</span>') !!}
-                                </div>
-
-                                <div class="form-group has-float-label">
-                                   <input type="text" value="{{ $alumnos->domicilio }}" class="form-control @error('domicilio') is-invalid @enderror" maxlength="50"  id="domicilio" name="domicilio" placeholder="">
-                                  <span>Domicilio</span>
-                                {!! $errors->first('domicilio','<span class=error>:message</span>') !!}
-                                </div>
-                            
+                      <button class="btn btn-success" type="submit" style="margin: 2em;">Modificar</button>
+                                
                         </div>
                     </div>
 
+                    <div class="col-12 col-lg-6">
+                      <div class="card mb-4">
+                       <div class="card-body">
+
+                                <div class="form-group has-float-label">
+                                       <div class="input-group date">
+                                        <label>Fecha limite</label>
+                                            <input type="text" value="{{old('limit',$conferencia->limithour)}}" class="form-control @error('limit') is-invalid @enderror" maxlength="50"  id="limit" name="limit" placeholder="">
+                                            <span class="input-group-text input-group-append input-group-addon">
+                                                <i class="simple-icon-calendar"></i>
+                                            </span>
+                                        </div>
+                                {!! $errors->first('limit','<span class=error>:message</span>') !!}
+                                </div>
+                          
+                          <h3> Se puede personalizar el dia, hora y minuto una vez dado click en un fecha para ser mas especifico </h3>
+
+                        </div>
+                      </div>
+                    </div>
+
+
               </div>
+            </form>
+        </div>
+             
 
 
-              <div class="col-12 col-lg-6">  
-              
-                     <div class="card mb-4">
-                         <div class="card-body">
-                        
-                             <div class="form-group has-float-label">
-                              <select class="form-control" id="generos_id" name="generos_id">
-                                @foreach ($generos as $gener)
-                                     <option value="{{$gener->id}}" {{ $alumnos->genero->id == $gener->id ?'selected' : '' }}> 
-                                      {{$gener->title}}</option>
-                                 @endforeach
-                              </select> 
-                            {!! $errors->first('generos_id','<span class=error>:message</span>') !!}
-                                    <span>Generos</span>
-                                </div>
-                               
+  @endsection
 
-                                <div class="form-group has-float-label">
-                              <select class="form-control" id="padres_id" name="padres_id">
-                                @foreach ($padres as $pad)
-                                     <option value="{{$pad->id}}" {{ $alm->padre->id == $pad->id ? 'selected' : '' }}> 
-                                      {{$pad->user->nombres}}</option>
-                                 @endforeach
-                              </select> 
-                            {!! $errors->first('padres_id','<span class=error>:message</span>') !!}
-                                    <span> Apoderado </span>
-                                </div>
-
-
-                                <div class="form-group has-float-label">
-                              <select class="form-control" id="parentescos_id" name="parentescos_id">
-                                @foreach ($parentescos as $parent)
-                                     <option value="{{$parent->id}}" {{ $alm->parentesco->id == $parent->id ? 'selected' : '' }}>           {{$parent->title}}</option>
-                                 @endforeach
-                              </select> 
-                            {!! $errors->first('parentescos_id','<span class=error>:message</span>') !!}
-                                    <span> Parentesco </span>
-                                </div>
-
-
-                                <div class="form-group has-float-label">
-                              <select class="form-control" id="grados_id" name="grados_id">
-                                @foreach ($grados as $grad)
-                                     <option value="{{$grad->id}}" {{ $alm->grado->id == $grad->id ? 'selected' : '' }}>
-                                      {{$grad->title}}</option>
-                                 @endforeach
-                              </select> 
-                            {!! $errors->first('grados_id','<span class=error>:message</span>') !!}
-                                    <span> Grados </span>
-                                </div>
-
-
-                                <div class="form-group has-float-label">
-                              <select class="form-control" id="seccions_id" name="seccions_id">
-                                @foreach ($seccions as $secci)
-                                     <option value="{{$secci->id}}" {{ $alm->seccion->id == $secci->id ? 'selected' : '' }}>      
-                                      {{$secci->title}}</option>
-                                 @endforeach
-                              </select> 
-                            {!! $errors->first('seccions_id','<span class=error>:message</span>') !!}
-                                    <span> Secciones </span>
-                                </div>
-
-
-                                <div class="form-group has-float-label">
-                              <select class="form-control" id="nivels_id" name="nivels_id">
-                                @foreach ($nivels as $nive)
-                                     <option value="{{$nive->id}}" {{ $alm->nivel->id == $nive->id ? 'selected' : '' }}> 
-                                      {{$nive->title}}</option>
-                                 @endforeach
-                              </select> 
-                            {!! $errors->first('nivels_id','<span class=error>:message</span>') !!}
-                                    <span> Niveles </span>
-                                </div>
-
-
-
-                                <button class="btn btn-success" type="submit">Editar</button>
-
-                         </div>
-                     </div>   
-                     
-               </div> 
-
-              
-             </div>
-
-
-             </form>
-
-          </div>
-      
-  @stop

@@ -21,14 +21,14 @@
              <div class="row">
 
                <div class="col-12 col-lg-6">
-                  <div class="card mb-4">
+                   <div class="card mb-4">
                         <div class="card-body">
+
                           <div class="form-group has-float-label">
-                            
                                    <input type="file" value="{{old('logo')}}" class="form-control @error('logo') is-invalid @enderror" maxlength="50"  id="logo" name="logo" placeholder="">
                                     <span> Imagen de la conferencia</span>
-                           {!! $errors->first('logo','<span class=error>:message</span>') !!}
-                       </div> 
+                              {!! $errors->first('logo','<span class=error>:message</span>') !!}
+                         </div> 
 
                         <div class="form-group has-float-label">
                                    <input type="text" value="{{old('entidad')}}" class="form-control @error('entidad') is-invalid @enderror" maxlength="150"  id="entidad" name="entidad" placeholder="">
@@ -55,7 +55,7 @@
                                 </div> --}}
 
 
-                                    <div class="form-group row mb-1">
+                                    {{-- <div class="form-group row mb-1">
                                         <label class="col-12 col-form-label"> Estado </label>
                                         <div class="col-12">
                                             <div class="custom-switch custom-switch-primary mb-2">
@@ -63,7 +63,7 @@
                                                 <label class="custom-switch-btn" for="act"></label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                           </div>
                                 {{-- @if($workDay->active) checked @endif --}}

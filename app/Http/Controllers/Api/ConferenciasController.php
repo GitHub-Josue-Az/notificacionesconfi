@@ -23,6 +23,15 @@ class ConferenciasController extends Controller
                return response()->json($conferencia, 200);
     }
 
+    public function historial()
+    {
+        
+            $conferencia = Conferencia::where('deleted',1)->where('estado',0)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
+
+            /* DEVUELVE ARRAY SIN VALORES EN CASO NO HAY */
+               return response()->json($conferencia, 200);
+    }
+
 
    /* public function solicitudes(Request $request){
 

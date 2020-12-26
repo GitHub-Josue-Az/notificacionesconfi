@@ -8,6 +8,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ConferenciasController extends Controller
 {
@@ -22,8 +23,9 @@ class ConferenciasController extends Controller
 
     public function index()
     {
-        
-            $conferencia = Conferencia::where('deleted',1)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
+     
+
+  $conferencia = Conferencia::where('deleted',1)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
 
             return view('conferencias.conferencia.index',compact('conferencia'));
     }
@@ -48,10 +50,11 @@ class ConferenciasController extends Controller
         ]);
 
          $dt = new Carbon($request->limit);
-         $estadi = $request->exists('act') ? 1:0 ;
+        $request->request->add(['limithour' => $dt]);
+         /*$estadi = $request->exists('act') ? 1:0 ;*/
 
 
-         if ($estadi == 1) {
+        /* if ($estadi == 1) {
             $recipients = User::whereNotNull('device_token')->where('deleted',1)->pluck('device_token')->toArray();
 
                 fcm()
@@ -60,16 +63,24 @@ class ConferenciasController extends Controller
                     'title' => $request->nombre.' 👩‍💼',
                     'body' =>  'La conferencia esta dirigida por'. $request->entidad,
                 ])->send();
-         }
+         }*/
 
-         $request->request->add(['limithour' => $dt]);
-         $request->request->add(['estado' => $estadi]);
+        /* $request->request->add(['estado' => $estadi]);*/
 
          if($request->hasFile('logo') ){
                $imager = $request->file('logo')->store('conferencias');
             $request->merge(['imagen' => $imager]);
 
-            Conferencia::create($request->all());             
+            Conferencia::create($request->all());      
+
+             $recipients = User::whereNotNull('device_token')->where('deleted',1)->pluck('device_token')->toArray();
+
+             fcm()
+                ->to($recipients) 
+                ->notification([
+                    'title' => $request->nombre.' 💼',
+                    'body' =>  'La conferencia esta dirigida por'. $request->entidad,
+                ])->send();       
         }
 
         return redirect()->route('admin.conferencias.index');
@@ -126,8 +137,44 @@ class ConferenciasController extends Controller
 
     public function update(Request $request, $id)
     {
-        
+
+        $request->validate([
+           'nombre' => 'required|max:100',
+            'descripcion' => 'required|max:100',
+            'limit' => 'required|max:100',
+            'entidad' =>'required|max:100', 
+        ]);
+
+         $dt = new Carbon($request->limit);
+        $request->request->add(['limithour' => $dt]);
+
+        if (!is_null($request->logo)) {
+
+         $validator = Validator::make($request->all(),[
+    'logo' => 'mimes:jpeg,png,jpg,gif,svg|max:800|dimensions:min_width=100,min_height=100,max_width=750,max_height=800',
+        ]);
+
+        if ($validator->fails()) {
+               return back()->withErrors($validator);
+            }
+
+           $confe = Conferencia::findOrFail($id);
+            $imager = $request->file('logo')->store('conferencias');
+            $request->merge(['imagen' => $imager]);
+
+
+          $confe->update($request->all());
+      
+         return redirect()->route('admin.conferencias.index');
+        }
+
+          $request->request->remove('logo');
+          $confe = Conferencia::findOrFail($id);
+          $confe->update($request->all());
+
+         return redirect()->route('admin.conferencias.index');
     }
+
 
   /*  public function updatestate(Request $request, $id)
     { 
@@ -142,6 +189,16 @@ class ConferenciasController extends Controller
            }
        return redirect()->route('admin.conferencias.index');
     }*/
+
+     public function update2($idconfe)
+    {
+      
+         $conferencia = Conferencia::findOrFail($idconfe); 
+
+         $conferencia->update(['deleted' => 0]);
+
+         return redirect()->route('admin.conferencias.index');
+    }
 
 
     public function destroy($id)
