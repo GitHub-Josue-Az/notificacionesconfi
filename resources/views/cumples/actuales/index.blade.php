@@ -49,9 +49,9 @@
                             <td>{!! $union->estadoTag !!}</td>
                             <td>{!! $union->fechaTag !!}</td>
                             <td></td>
-                            <td></td>
+                            <td></td><td></td>
                             {{-- <td><a href="{{ route('admin.cumples.tarjeta', [$union->id]) }}" class="btn btn-secondary mb-1"><i class="fas fa-primary"></i> Tarjeta</a></td> --}}
-                            <td><a href="{{ route('admin.cumples.sendma',[$union->user->id]) }}" class="btn btn-light"> <i class="fas fa-primary"> </i> Enviar </a></td>
+                            {{-- <td><a href="{{ route('admin.cumples.sendma',[$union->user->id]) }}" class="btn btn-light"> <i class="fas fa-primary"> </i> Enviar </a></td> --}}
                             <td><a href="{{ route('admin.cumples.show', [$union->id]) }}" class="btn btn-primary"><i class="fas fa-primary"></i> Comentarios</a></td>
                             <td><form style="display:inline" method='POST' action="{{ route('admin.cum.update2',[$union->id]) }}">
                                       {!! method_field('PUT') !!}
