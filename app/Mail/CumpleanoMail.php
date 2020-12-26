@@ -20,11 +20,6 @@ class CumpleanoMail extends Mailable
          $this->usuario= $usuario;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
         return $this->view('emails.tarjetamail');

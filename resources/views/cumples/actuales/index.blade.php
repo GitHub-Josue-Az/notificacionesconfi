@@ -31,7 +31,7 @@
                             <th>cumpleaños</th>
                             <th></th>
                             {{-- <th> Tarjetas </th> --}}
-                           {{--  <th> Mail </th> --}}
+                            <th> Mail </th>
                             <th >Comentarios</th>
                             <th >Eliminar</th>
 
@@ -49,7 +49,7 @@
                             <td>{!! $union->fechaTag !!}</td>
                             <td></td>
                             {{-- <td><a href="{{ route('admin.cumples.tarjeta', [$union->id]) }}" class="btn btn-secondary mb-1"><i class="fas fa-primary"></i> Tarjeta</a></td> --}}
-                            {{-- <td><a href="{{ route('admin.cumples.enviomail', [$union->user->id]) }}" class="btn btn-light mb-1"><i class="fas fa-primary"></i> Mail </a></td> --}}
+                            <td><a href="{{ route('admin.cumple.enviomail', [$union->user->id]) }}" class="btn btn-light mb-1"><i class="fas fa-primary"></i> Mail </a></td>
                             <td><a href="{{ route('admin.cumples.show', [$union->id]) }}" class="btn btn-primary"><i class="fas fa-primary"></i> Comentarios</a></td>
                             <td><form style="display:inline" method='POST' action="{{ route('admin.cum.update2',[$union->id]) }}">
                                       {!! method_field('PUT') !!}
