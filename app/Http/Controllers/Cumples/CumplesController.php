@@ -35,7 +35,7 @@ class CumplesController extends Controller
                             ->whereRaw('day(fechacumples) ='.$diahoy)
                             ->where('deleted',1)->get(); 
 
-       // TRAE LOS USUARIOS DEL PRIMER DIA DEL MES, EN CASO ESTEMOS FIN DE MES
+     
        if ($diahoy == $diasdelmes) {
 
             $diaAdelantadot = $diassone->addDay();    
@@ -159,7 +159,7 @@ class CumplesController extends Controller
 
 
 
-    public function enviomail($idusu){
+    public function showmail($idusu){
 
 
       return redirect()->route('admin.cumples.index');
