@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\User;
 
 
-class CumpleanoMail extends Mailable
+class Mail extends Mailable
 {
     use Queueable, SerializesModels;
 
