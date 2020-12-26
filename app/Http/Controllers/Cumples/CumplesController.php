@@ -158,7 +158,7 @@ class CumplesController extends Controller
 
 
 
-    public function show3($idusu){
+    public function show3($id){
 
 
       return redirect()->route('admin.cumples.index');
