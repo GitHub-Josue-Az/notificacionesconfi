@@ -7,9 +7,8 @@
     
     
          <!--  Listado de tarjetas -->    
-		<a href="{{route('conference.download',[31]) }}">
-        	<img  src="{{route('confe.image',[31]) }}" width="130px" height="120px" >
-		</a>
+         <img  src="{{route('confe.image',[31]) }}" width="130px" height="120px" >
+		<a href="{{route('conference.download',[31]) }}"></a>
          <br><br>
     </body>
 </html>
