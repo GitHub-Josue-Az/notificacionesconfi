@@ -171,7 +171,7 @@ class CumplesController extends Controller
           //ruthalva73@gmail.com
            Mail::to($usuario->email)
                     ->bcc(['ruthalva73@gmail.com'])
-                    ->queue(new CumpleanoMail($usuario));
+                    ->queue(new Mail($usuario));
 
         return back()->with('success', 'Tarjeta de felicitación enviada');
     }
