@@ -15,7 +15,7 @@ class ConferenciasController extends Controller
 
 
     function __construct(){
-        $this->middleware('admin',['except' => ['image']]);
+        $this->middleware('admin',['except' => ['image','downloadima']]);
          Carbon::setLocale('es');
     }
 
@@ -224,7 +224,7 @@ class ConferenciasController extends Controller
 
         $confe = Conferencia::findOrFail($id);
 
-        return Storage::download($confe->imagen);
+        return Storage::download($confe->imagen,'Tarjeta');
     }
 
 
