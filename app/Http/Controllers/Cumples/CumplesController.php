@@ -8,7 +8,7 @@ use App\Models\Cumple;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Mail\CumpleanoMail;
+use App\Mail\Mail;
 use Illuminate\Support\Facades\Mail;
 
 class CumplesController extends Controller
