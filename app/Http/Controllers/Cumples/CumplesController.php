@@ -162,7 +162,7 @@ class CumplesController extends Controller
     public function enviomail($idcumpleanero){
 
 
-dd("aea");
+      return redirect()->route('admin.cumples.index');
       /*$usuario   = User::where('deleted',1)->first();
 
             if (!is_null($usuario->email)) {
