@@ -220,4 +220,12 @@ class ConferenciasController extends Controller
     }
 
 
+    public function downloadima($id){
+
+        $confe = Conferencia::findOrFail($id);
+
+        return Storage::download($confe->imagen);
+    }
+
+
 }

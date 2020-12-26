@@ -42,6 +42,7 @@ Route::get('prutrue', 'HomeController@prutrue')->name('prutrue');*/
 
 Route::get('cuponera/{id}/image', 'Cuponera\CuponeraController@image')->name('cuponera.image');	
 Route::get('confe/{id}/image', 'Conferencias\ConferenciasController@image')->name('confe.image');	 //IMAGEN
+Route::get('downloadima/{id}', 'Conferencias\ConferenciasController@downloadima')->name('conference.download');	 //DOWNLOAD
 
 
 
