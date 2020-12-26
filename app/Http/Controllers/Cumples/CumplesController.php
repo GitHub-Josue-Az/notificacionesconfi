@@ -159,12 +159,10 @@ class CumplesController extends Controller
 
 
 
-    public function enviomail($idcumpleanero){
+    /*public function enviomail($idcumpleanero){
 
-      // Traer el correo del usuario correspondiente al cumpleaños y luego enviarle un email con todas las tarjetas
       $usuario   = User::where('deleted',1)->first();
 
-        //SI en caso el usuario no tiene pues reenviar con mensaje de error
             if (!is_null($usuario)) {
                    return back()->withErrors('El usuario no posee un correo');           
           }       
@@ -174,7 +172,7 @@ class CumplesController extends Controller
                     ->queue(new CumpleanoMail($usuario));
 
         return back()->with('success', 'Email enviado');
-    }
+    }*/
 
    /* public function tarjeta($idcumple){
 
