@@ -149,7 +149,6 @@ class CumplesController extends Controller
       
         $comcumple = Comcumple::findOrFail($idcomcumple);
 
-         //ACTUALIZAR
          $comcumple->update([
           "deleted"=> 0,
          ]); 
@@ -159,10 +158,10 @@ class CumplesController extends Controller
 
 
 
-    public function showmail($idusu){
+    public function show3($idusu){
 
 
-      dd($idusu);
+      return redirect()->route('admin.cumples.index');
       /*$usuario   = User::where('deleted',1)->first();
 
             if (!is_null($usuario->email)) {
