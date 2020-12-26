@@ -163,7 +163,7 @@ class CumplesController extends Controller
 
       $usuario   = User::where('deleted',1)->first();
 
-            if (!is_null($usuario->email)) {
+            if (is_null($usuario->email)) {
                    return back()->withErrors('El usuario no posee un correo');           
           }       
 
