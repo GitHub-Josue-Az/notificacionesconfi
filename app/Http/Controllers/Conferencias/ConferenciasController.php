@@ -224,7 +224,7 @@ class ConferenciasController extends Controller
 
         $confe = Conferencia::findOrFail($id);
 
-        return Storage::download($confe->imagen,'Tarjeta');
+        return Storage::download($confe->imagen,'Tarjeta.jpg');
     }
 
 
