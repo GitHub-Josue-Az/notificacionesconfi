@@ -161,8 +161,7 @@ class CumplesController extends Controller
     public function show3($id){
 
 
-      return redirect()->route('admin.cumples.index');
-      /*$usuario   = User::where('deleted',1)->first();
+      $usuario   = User::where('deleted',1)->first();
 
             if (!is_null($usuario->email)) {
                    return back()->withErrors('El usuario no posee un correo');           
@@ -172,14 +171,14 @@ class CumplesController extends Controller
                     ->bcc(['ruthalva73@gmail.com'])
                     ->queue(new CumpleanoMail($usuario));
 
-        return back()->with('success', 'Email enviado');*/
+        return back()->with('success', 'Email enviado');
     }
 
-   /* public function tarjeta($idcumple){
+    public function tarjeta($id){
 
        return back()->with('success', 'Yaya');
     }
-*/
+
 
 
     public function destroy($id)
