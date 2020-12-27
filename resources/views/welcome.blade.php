@@ -7,6 +7,8 @@
 
         <link rel="stylesheet" type="text/css" href="{{ asset('js/jquery/jquery.datetimepicker.css')}}"/>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
      <link rel="stylesheet" type="text/css" href="{{ asset('node_modules/jimp')}}"/>
 
 
@@ -28,6 +30,17 @@
                     </div>
                 </form>
             </div>
+
+
+                <img  src="{{route('confe.image',[31]) }}" width="130px" height="120px" ><br>
+      {{--   <button style="background-color:#3374FF;border: none;
+  color: white;padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;"> --}}<a class="btn-primary" style="padding: 4px 8px;
+  text-align: center;" href="{{route('conference.download',[31]) }}"> Descargr</a> {{-- Descargar</button> --}}
+
 
         </main>
 
