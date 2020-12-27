@@ -13,8 +13,7 @@
          <div>
          	
          	<img  src="{{route('confe.image',[31]) }}" width="130px" height="120px"><br>
-		<a class="btn-primary" style="padding: 4px 8px;
-  text-align: center;" href="{{route('conference.download',[31]) }}"> Descargar</a>
+		<a class="btn-primary" style="background-color: green; box-shadow: 0 5px 0 darkgreen; color: white; padding: 14px 25px; text-decoration: none; text-transform: uppercase; display: inline-block;" href="{{route('conference.download',[31]) }}"> Descargar</a>
 
 
          </div>             
