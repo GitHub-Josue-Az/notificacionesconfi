@@ -66,7 +66,7 @@ class User extends Authenticatable
     } 
 
     public function imagecumple() {
-        return $this->hasMany(Imagecumple::class, 'users_id');
+        return $this->hasMany(Imagecumple::class, 'users_id')->where('deleted',1);
     } 
 
 

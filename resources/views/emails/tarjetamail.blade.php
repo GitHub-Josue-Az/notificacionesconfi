@@ -3,7 +3,7 @@
 	
 
     <body>
-        
+
 <style>
 .grid-container {
   display: grid;
@@ -30,9 +30,11 @@
               <div class="grid-item">
             
  <img  src="{{route('tarjeta.image',[$imagenes->id]) }}" width="130px" height="120px"><br>
- <a class="btn-primary" style="background-color: #3374FF; color: white; padding: 8px 15px;" href="{{route('tarjeta.download',[$imagenes->id]) }}"> Descargar</a>
+ <a class="btn-primary" style="background-color: #3374FF; box-shadow: 0 5px 0 darkgreen; color: white; padding: 8px 15px; text-decoration: none; text-transform: uppercase; display: inline-block;" href="{{route('tarjeta.download',[$imagenes->id]) }}"> Descargar</a>
 
              </div>
+
+               <br><br> 
 
             @endforeach
 
