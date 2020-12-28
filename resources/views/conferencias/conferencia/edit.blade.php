@@ -30,7 +30,7 @@
                           <img  src="{{route('confe.image', [$conferencia->id])}}" width="130px" height="120px" >
                           <br><br>
                           <div class="form-group has-float-label">
-                                   <input type="file" value="{{old('logo')}}" class="form-control @error('logo') is-invalid @enderror" maxlength="50"  id="logo" name="logo" placeholder="">
+                                   <input type="file" value="{{old('logo')}}" class="form-control @error('logo') is-invalid @enderror"  id="logo" name="logo" placeholder="">
                                     <span> Imagen de la conferencia</span>
                               {!! $errors->first('logo','<span class=error>:message</span>') !!}
                          </div> 

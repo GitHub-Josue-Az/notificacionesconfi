@@ -25,6 +25,7 @@ class HomeController extends Controller
     }
 
 
+
     public function prucarbon() {
 
         $dt = Carbon::now()->subDay(); ;

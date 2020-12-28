@@ -7,6 +7,7 @@ use App\Models\Comcumple;
 use App\Models\Comfelicitado;
 use App\Models\Conferencia;
 use App\Models\Felicitadore;
+use App\Models\Imagecumple;
 use App\Models\Jefe;
 use App\Models\Role;
 use Carbon\Carbon;
@@ -22,7 +23,7 @@ class User extends Authenticatable
 
 	protected $fillable = [
         'id','roles_id','nombres','codigo','password','estado','deleted','jefes_id','numero','remember_token',
-        'cargos_id','numerodos',
+        'cargos_id','email',
     ];  
 
   
@@ -64,6 +65,9 @@ class User extends Authenticatable
         return $this->hasMany(Comfelicitado::class, 'users_id');
     } 
 
+    public function imagecumple() {
+        return $this->hasMany(Imagecumple::class, 'users_id');
+    } 
 
 
     public function getIsAdminAttribute() {

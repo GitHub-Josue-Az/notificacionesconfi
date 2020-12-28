@@ -41,7 +41,7 @@ class UsuariosController extends Controller
             'password' => 'required|min:3|confirmed',
             'jefes_id' => 'required|max:100',
             'cargos_id' => 'required|max:100',
-            'numero' => 'required|max:100',
+            'numero' => 'required|max:10',
             'fechacumples' => 'required|max:100',
         ]);
 

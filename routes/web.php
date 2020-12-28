@@ -42,7 +42,8 @@ Route::get('prutrue', 'HomeController@prutrue')->name('prutrue');*/
 
 Route::get('cuponera/{id}/image', 'Cuponera\CuponeraController@image')->name('cuponera.image');	
 Route::get('confe/{id}/image', 'Conferencias\ConferenciasController@image')->name('confe.image');	 //IMAGEN
-Route::get('downloadima/{id}', 'Conferencias\ConferenciasController@downloadima')->name('conference.download');	 //DOWNLOAD
+Route::get('tarjeta/{id}/image', 'Cumples\ImagesController@image')->name('tarjeta.image');	 //IMAGEN
+Route::get('downloadima/{id}', 'Cumples\ImagesController@downloadima')->name('tarjeta.download');	 //DOWNLOAD
 
 
 
@@ -74,7 +75,13 @@ Route::put('camp/{idcamp}',  'Cuponera\CamposController@update2')->name('camp.up
 					/* Cumpleaños */
 Route::resource('cumples', 'Cumples\CumplesController');
 
-Route::get('tarjeta/{id}', 'Cumples\CumplesController@tarjeta')->name('cumples.tarjeta');
+Route::get('tarjeta/{id}', 'Cumples\ImagesController@index')->name('cumples.tarjeta');
+Route::get('tarjet/{id}/edit', 'Cumples\ImagesController@edit')->name('images.edit');
+Route::post('tarjeta', 'Cumples\ImagesController@store')->name('images.store');
+Route::put('tarjetas/{id}', 'Cumples\ImagesController@update2')->name('images.update2');
+Route::put('tarje/{id}', 'Cumples\ImagesController@update')->name('images.update');
+
+
 Route::get('cumplesmail/{id}', 'Cumples\CumplesController@show3')->name('cumple.show3');
 
 Route::get('cumplespasados', 'Cumples\CumplesController@index2')->name('cumple.index2');

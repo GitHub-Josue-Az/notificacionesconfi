@@ -50,7 +50,7 @@
                                 </div>
 
                                 <div class="form-group has-float-label">
-                                   <input type="number" value="{{old('numero')}}" class="form-control @error('numero') is-invalid @enderror" maxlength="50"  id="numero" name="numero" placeholder="">
+                                   <input type="number" value="{{old('numero')}}" class="form-control @error('numero') is-invalid @enderror" maxlength="10"  id="numero" name="numero" placeholder="">
                                      <span>Celular</span>
                                 {!! $errors->first('numero','<span class=error>:message</span>') !!}
                                 </div>

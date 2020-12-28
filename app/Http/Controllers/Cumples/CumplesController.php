@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Cumples;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Tarjeta;
 use App\Models\Comcumple;
 use App\Models\Cumple;
+use App\Models\Imagecumple;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Mail\Tarjeta;
 use Illuminate\Support\Facades\Mail;
 
 class CumplesController extends Controller
@@ -167,19 +168,23 @@ class CumplesController extends Controller
                    return back()->withErrors('El usuario no posee un correo');           
           }       
 
+          $image = Imagecumple::where('users_id',$id)->where('deleted',1)->where('estado',1)->get();
 
-          //ruthalva73@gmail.com
-           Mail::to($usuario->email)
+            if (count($image) > 0 ){
+                   Mail::to($usuario->email)
                     ->bcc(['ruthalva73@gmail.com'])
                     ->queue(new Tarjeta($usuario));
 
-        return back()->with('success', 'Tarjeta de felicitación enviada');
+                    return back()->with('success', 'Tarjeta de felicitación enviada');
+            }
+
+           return back()->withErrors(' El usuario necesita al menos una tarjeta ');
     }
 
-    public function tarjeta($id){
+    /*public function tarjeta($id){
 
        return back()->with('success', 'Yaya');
-    }
+    }*/
 
 
 
