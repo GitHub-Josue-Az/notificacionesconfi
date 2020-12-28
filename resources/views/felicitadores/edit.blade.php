@@ -24,8 +24,7 @@
 
              <div class="row">
                <div class="col-12 col-lg-6">
-              
-                <div class="card mb-4">
+                   <div class="card mb-4">
                         <div class="card-body">
 
                       <div class="form-group ">
@@ -43,9 +42,7 @@
                             
                         </div>
                     </div>
-
                 </div>
-              
              </div>
 
 
