@@ -57,7 +57,7 @@ class AuthController extends Controller
     public function users(){
 
       $user = Auth::guard('api')->user();
-      $usuarios =  User::where('deleted',1)->where('id','<>',$user->id)->get(["id","nombres"]);
+      $usuarios =  User::where('deleted',1)->where('id','<>',$user->id)->get(["id","codigo"]);
 
       return response()->json($usuarios, 200);
     }
