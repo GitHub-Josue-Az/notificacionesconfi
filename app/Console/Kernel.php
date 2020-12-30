@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\estadoconferencia;
 use App\Console\Commands\estadocumples;
 use App\Console\Commands\listadocumples;
 use Illuminate\Console\Scheduling\Schedule;
