@@ -31,19 +31,15 @@
                     <div class="card auth-card">
                         <div class="position-relative image-side ">
 
-                            <p class=" text-white h2">MAGIC IS IN THE DETAILS</p>
+                            <p class=" text-white h2">Login</p>
 
                             <p class="white mb-0">
-                                Please use your credentials to login.
-                                <br>If you are not a member, please
-                                <a href="#" class="white">register</a>.
+                                Ingrese sus credenciales para ingresar.
+                                <br>Si no posee credenciales comunicarse <br>con el encargado
                             </p>
                         </div>
                         <div class="form-side">
 
-                            <a href="/">
-                                <span class="logo-single"></span>
-                            </a>
                             <h6 class="mb-4">Login</h6>
                             <form method="post" action="{{ route('logii') }}">
                                {!! csrf_field() !!}

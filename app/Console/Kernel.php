@@ -16,7 +16,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         listadocumples::class,
-        estadocumples::class
+        estadocumples::class,
+        estadoconferencia::class
     ];
 
     /**
@@ -31,6 +32,8 @@ class Kernel extends ConsoleKernel
         /* Funciona */      
         $schedule->command('usuarios:cumples')->timezone('America/Lima')->at('08:00');
         $schedule->command('estado:cumples')->timezone('America/Lima')->at('08:00');
+
+        $schedule->command('estado:conferencias')->timezone('America/Lima')->hourly();
 
          
     }

@@ -25,6 +25,23 @@ class HomeController extends Controller
     }
 
 
+    /*public function estadoconferencia(){
+
+
+          $diassone = Carbon::now('America/Lima');  
+       $diahoy = $diassone->day;       
+       $meshoy = $diassone->month;      
+       $horahoy = $diassone->hour;      
+
+       $cumplesone  = Conferencia::whereRaw('month(limithour) = '.$meshoy)             
+                            ->whereRaw('day(limithour) ='.$diahoy)
+                            ->whereRaw('hour(limithour) ='.$horahoy)
+                            ->where('deleted',1)
+                            ->where('estado',1)->get(); 
+
+        return $cumplesone;
+    }*/
+
 
     public function prucarbon() {
 

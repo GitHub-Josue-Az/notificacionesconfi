@@ -57,6 +57,7 @@ class estadocumples extends Command
                                 "estado" => 0,
                         ]);
                     }    
+                    return;
             }                 
            return ;
 
