@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comcumple;
 use App\Models\Comfelicitado;
 use App\Models\Conferencia;
 use App\Models\Cumple;
@@ -41,6 +42,59 @@ class HomeController extends Controller
 
         return $cumplesone;
     }*/
+
+  /*  public function voverr(){
+
+        $diassone = Carbon::now('America/Lima');  
+        $hacetiemp = $diassone->subMonths(5);
+      
+       $meshoy = $hacetiemp->month;        
+
+       $cumplesone  = Cumple::whereRaw('month(fechacumples) = '.$meshoy)  
+                            ->where('deleted',1)
+                            ->where('estado',0)->get(); 
+
+    if ($cumplesone->count() > 0) {
+                        
+                 foreach ($cumplesone as $key => $value) {
+
+                          $value->update([
+                                "estado" => 1,
+                        ]);
+                    }    
+                    return;
+            }                 
+           return ;
+
+    }*/
+
+    public function voverr(){
+
+
+        $diassone = Carbon::now('America/Lima');  
+        $hacetiemp = $diassone->subMonths(5);
+      
+       $meshoy = $hacetiemp->month;        
+       $anohoy = $hacetiemp->year;
+
+       $cumplesone  = Comcumple::where('deleted',1)
+                            ->whereYear('created_at',$anohoy)
+                            ->whereMonth('created_at',$meshoy)
+                            ->where('estado',1)->get(); 
+
+        if ($cumplesone->count() > 0) {
+                        
+                 foreach ($cumplesone as $key => $value) {
+                    
+                          $value->update([
+                                "deleted" => 0,
+                        ]);
+                    }    
+                    return;
+            }                 
+           return ;
+
+    }
 
 
     public function prucarbon() {

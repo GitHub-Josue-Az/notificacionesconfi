@@ -6,8 +6,8 @@
 Route::get('/', 'HomeController@inicio')->name('inicio');
 Route::get('/welcome', 'HomeController@welcome')->name('welcome');
 Route::get('/carbon', 'HomeController@prucarbon')->name('carbon');
-/*Route::get('/estadoconferencia', 'HomeController@estadoconferencia')->name('estadoconferencia');
-*/
+/*Route::get('/estadoconferencia', 'HomeController@estadoconferencia')->name('estadoconferencia');*/
+Route::get('/voverr', 'HomeController@voverr')->name('voverr');
 /*Route::get('/conferenciamuchos', 'HomeController@conferenciamuchos')->name('conferenciamuchos');
 Route::get('cumples', 'HomeController@cumpless')->name('cumpless');
 Route::get('felicitadores', 'HomeController@felicitadores')->name('felicitadores');*/

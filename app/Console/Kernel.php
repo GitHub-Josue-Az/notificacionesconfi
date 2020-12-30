@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\activecumple;
 use App\Console\Commands\estadoconferencia;
 use App\Console\Commands\estadocumples;
 use App\Console\Commands\listadocumples;
@@ -18,7 +19,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         listadocumples::class,
         estadocumples::class,
-        estadoconferencia::class
+        estadoconferencia::class,
+        activecumple::class
     ];
 
     /**
@@ -33,6 +35,10 @@ class Kernel extends ConsoleKernel
         /* Funciona */      
         $schedule->command('usuarios:cumples')->timezone('America/Lima')->at('08:00');
         $schedule->command('estado:cumples')->timezone('America/Lima')->at('08:00');
+        $schedule->command('active:cumples')->timezone('America/Lima')->monthly(); 
+        
+        $schedule->command('deleted:comcumple')->timezone('America/Lima')->monthly(); 
+
 
         $schedule->command('estado:conferencias')->timezone('America/Lima')->hourly();
 

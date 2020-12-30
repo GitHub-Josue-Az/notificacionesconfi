@@ -45,11 +45,12 @@ class estadoconferencia extends Command
        $meshoy = $diassone->month;      
        $horahoy = $diassone->hour;      
 
-       $confere  = Conferencia::whereRaw('month(limithour) = '.$meshoy)             
+       $confere  = Conferencia::where('deleted',1)
+                            ->where('estado',1)
+                            ->whereRaw('month(limithour) = '.$meshoy)             
                             ->whereRaw('day(limithour) ='.$diahoy)
                             ->whereRaw('hour(limithour) ='.$horahoy)
-                            ->where('deleted',1)
-                            ->where('estado',1)->get(); 
+                            ->get(); 
 
        if ($confere->count() > 0) {
                         
