@@ -77,7 +77,8 @@ class listadocumples extends Command
 
           $cumpletwo  = Cumple::with('user')->whereRaw('month(fechacumples) = '.$mesAdelantadot)            
                             ->whereRaw('day(fechacumples) ='.$diaAdelantadot->day)
-                            ->where('deleted',1)->get(); 
+                            ->where('deleted',1)
+                            ->where('estado',1)->get(); 
 
             if ($cumpletwo->count() > 0) {
                         
