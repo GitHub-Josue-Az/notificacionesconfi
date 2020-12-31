@@ -75,7 +75,7 @@ class FelicitacionesController extends Controller
                     ->to([$nanci->device_token]) 
                     ->notification([
                         'title' => 'Felicitaciones  ⭐ ',
-                        'body' => "El usuario ".$usefeli." recibió una felicitacion de ".$felici,
+                        'body' => "El usuario ".$usefeli->nombres." recibió una felicitacion de ".$felici,
                      ])->send();
               }
 
