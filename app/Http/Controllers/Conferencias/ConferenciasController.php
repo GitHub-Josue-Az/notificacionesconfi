@@ -79,7 +79,7 @@ class ConferenciasController extends Controller
                 ->to($recipients) 
                 ->notification([
                     'title' => $request->nombre.' 💼',
-                    'body' =>  'La conferencia esta dirigida por'. $request->entidad,
+                    'body' =>  'La conferencia esta dirigida por '. $request->entidad,
                 ])->send();       
         }
 
