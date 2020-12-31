@@ -48,15 +48,37 @@ class FelicitacionesController extends Controller
     public function sendfelicitacion(Request $request){
 
      $usuario = Auth::guard('api')->user();
+
+       $nanci = User::where('id',16)->where('deleted',1)->toArray();
          
         $descripcion =  $request->input('descripcion');
         $felicitado =  $request->input('felicitado');
         
         $usefeli = User::where('id',$felicitado)->where('deleted',1)->first();
         $felicitador = Felicitadore::where('users_id',$usuario->id)->where('delete',1)->first();
+        $felici = $felicitador->user->nombres;
 
         if (!is_null($usefeli) && !is_null($felicitador)) {
                Comfelicitado::create(['users_id' => $felicitado,'felicitadores_id' => $felicitador->id,'descripcion' => $descripcion ]);  
+
+            if (!is_null($usefeli->device_token)) {
+                     fcm()
+                    ->to([$usefeli->device_token]) 
+                    ->notification([
+                        'title' => 'Felicitaciones  ⭐ ',
+                        'body' => "Recibiste una felicitacion de ".$felici,
+                     ])->send();
+                 }
+
+            if (!is_null($nanci->device_token)) {
+                     fcm()
+                    ->to([$nanci->device_token]) 
+                    ->notification([
+                        'title' => 'Felicitaciones  ⭐ ',
+                        'body' => "El usuario ".$usefeli." recibió una felicitacion de ".$felici,
+                     ])->send();
+              }
+
 
       return response()->json(['succes' => 'Validado correctamente'], 200);
              }     

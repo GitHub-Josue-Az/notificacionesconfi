@@ -37,11 +37,11 @@ class Kernel extends ConsoleKernel
     {
 
         /* Funciona */      
-        $schedule->command('usuarios:cumples')->timezone('America/Lima')->at('12:37');
+        $schedule->command('usuarios:cumples')->timezone('America/Lima')->at('08:00');
 
         $schedule->command('estado:cumples')->timezone('America/Lima')->at('08:00');
-        $schedule->command('active:cumples')->timezone('America/Lima')->monthly(); 
         
+        $schedule->command('active:cumples')->timezone('America/Lima')->monthly(); 
         $schedule->command('deleted:comcumple')->timezone('America/Lima')->monthly(); 
         $schedule->command('deleted:tarjeta')->timezone('America/Lima')->monthly(); 
 
