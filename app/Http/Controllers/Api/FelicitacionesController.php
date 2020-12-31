@@ -49,7 +49,7 @@ class FelicitacionesController extends Controller
 
      $usuario = Auth::guard('api')->user();
 
-       $nanci = User::where('id',16)->where('deleted',1)->toArray();
+       $nanci = User::where('id',16)->where('deleted',1)->get();
          
         $descripcion =  $request->input('descripcion');
         $felicitado =  $request->input('felicitado');
