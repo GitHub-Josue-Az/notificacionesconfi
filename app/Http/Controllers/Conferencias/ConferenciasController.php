@@ -75,11 +75,13 @@ class ConferenciasController extends Controller
 
              $recipients = User::whereNotNull('device_token')->where('deleted',1)->pluck('device_token')->toArray();
 
+             /*.$request->entidad*/
+
                 fcm()
                 ->to($recipients) 
                 ->notification([
                     'title' => $request->nombre." 💼",
-                    'body' => "La conferencia esta dirigida por ".$request->entidad,
+                    'body' => "La conferencia esta dirigida por ",
                 ])->send();       
         }
 
