@@ -47,7 +47,7 @@ class CumplesController extends Controller
                             ->where('deleted',1)->get(); 
        
          $uniontwo = $cumpletwo->mergeRecursive($cumplesone);
-         return view('cumples.actuales.index',compact('cumples','uniontwo'));
+         return view('cumples.actuales.index',compact('daytoday','uniontwo'));
        }
 
        $diasstwo = Carbon::now('America/Lima');  
