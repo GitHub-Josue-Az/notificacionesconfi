@@ -31,9 +31,9 @@ class CuponeraController extends Controller
            $request->validate([
                  'logo' => 'required|mimes:jpeg,png,jpg,gif,svg|max:800|dimensions:min_width=100,min_height=100,max_width=750,max_height=800',
                  'nombre' => 'required|max:200', 
-                 'direccion' => 'required',
+                 /*'direccion' => 'required',*/
                  'contacto' => 'required',
-                 'aplicable' => 'required',
+                 /*'aplicable' => 'required',*/
                  'detalles' => 'required',
                  'campos_id' => 'required',
             ]);
@@ -88,9 +88,9 @@ class CuponeraController extends Controller
 
         $request->validate([
                  'nombre' => 'required|max:200', 
-                 'direccion' => 'required',
+                 /*'direccion' => 'required',*/
                  'contacto' => 'required',
-                 'aplicable' => 'required',
+                /* 'aplicable' => 'required',*/
                  'detalles' => 'required',
                  'campos_id' => 'required',
             ]);

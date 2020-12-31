@@ -43,7 +43,7 @@ class ConferenciasController extends Controller
          $request->validate([
             'logo' => 'required|mimes:jpeg,png,jpg,gif,svg|max:800|dimensions:min_width=100,min_height=100,max_width=750,max_height=800',
             'nombre' => 'required|max:100',
-            'descripcion' => 'required|max:100',
+            /*'descripcion' => 'required|max:100',*/
            /* 'capacidad' => 'required',*/
             'limit' => 'required|max:100',
             'entidad' =>'required|max:100', 

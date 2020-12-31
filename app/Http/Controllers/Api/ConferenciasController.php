@@ -17,7 +17,16 @@ class ConferenciasController extends Controller
     public function conferenciaslist()
     {
         
-            $conferencia = Conferencia::where('deleted',1)->where('estado',1)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
+            $conf = Conferencia::where('deleted',1)->where('estado',1)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
+
+             $conferencia = [];
+
+        foreach ($conf as $key => $confe) {
+                $tiempo = $confe->limithour->addDays(2);
+                $confe->time = $tiempo;
+                $conferencia[$key] = $confe->only(['id','descripcion','limithour','nombre','entidad','time']);
+            }
+
 
             /* DEVUELVE ARRAY SIN VALORES EN CASO NO HAY */
                return response()->json($conferencia, 200);
