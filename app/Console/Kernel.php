@@ -3,6 +3,8 @@
 namespace App\Console;
 
 use App\Console\Commands\activecumple;
+use App\Console\Commands\deletedcomcumple;
+use App\Console\Commands\deletedtarjeta;
 use App\Console\Commands\estadoconferencia;
 use App\Console\Commands\estadocumples;
 use App\Console\Commands\listadocumples;
@@ -20,7 +22,9 @@ class Kernel extends ConsoleKernel
         listadocumples::class,
         estadocumples::class,
         estadoconferencia::class,
-        activecumple::class
+        activecumple::class,
+        deletedcomcumple::class,
+        deletedtarjeta::class
     ];
 
     /**
@@ -39,6 +43,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('active:cumples')->timezone('America/Lima')->monthly(); 
         
         $schedule->command('deleted:comcumple')->timezone('America/Lima')->monthly(); 
+        $schedule->command('deleted:tarjeta')->timezone('America/Lima')->monthly(); 
 
 
         $schedule->command('estado:conferencias')->timezone('America/Lima')->hourly();

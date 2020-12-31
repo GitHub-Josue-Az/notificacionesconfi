@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Imagecumple extends Model
 {
     
-
-	 public $timestamps = false;
     
 
     protected $fillable = [
