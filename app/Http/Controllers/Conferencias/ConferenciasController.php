@@ -53,18 +53,6 @@ class ConferenciasController extends Controller
         $request->request->add(['limithour' => $dt]);
          /*$estadi = $request->exists('act') ? 1:0 ;*/
 
-
-        /* if ($estadi == 1) {
-            $recipients = User::whereNotNull('device_token')->where('deleted',1)->pluck('device_token')->toArray();
-
-                fcm()
-                ->to($recipients) 
-                ->notification([
-                    'title' => $request->nombre.' 👩‍💼',
-                    'body' =>  'La conferencia esta dirigida por'. $request->entidad,
-                ])->send();
-         }*/
-
         /* $request->request->add(['estado' => $estadi]);*/
 
          if($request->hasFile('logo') ){

@@ -17,7 +17,7 @@ class ConferenciasController extends Controller
     public function conferenciaslist()
     {
         
-            $conf = Conferencia::where('deleted',1)->where('estado',1)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
+            $conf = Conferencia::where('deleted',1)->where('estado',1)->orderByRaw('DATE_FORMAT(limithour, "%m-%d") DESC')->get();
 
              $conferencia = [];
 
@@ -35,7 +35,7 @@ class ConferenciasController extends Controller
     public function historial()
     {
         
-            $conferencia = Conferencia::where('deleted',1)->where('estado',0)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
+            $conferencia = Conferencia::where('deleted',1)->where('estado',0)->orderByRaw('DATE_FORMAT(limithour, "%m-%d") DESC')->get();
 
             /* DEVUELVE ARRAY SIN VALORES EN CASO NO HAY */
                return response()->json($conferencia, 200);
