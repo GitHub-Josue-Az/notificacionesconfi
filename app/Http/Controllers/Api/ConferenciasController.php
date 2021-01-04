@@ -26,9 +26,9 @@ function __construct(){
 
         foreach ($conf as $key => $confe) {
                 $tiempo = $confe->limithour->addDays(2);
-                $confe->time = $tiempo->format('Y-m-d H:i');   
+                $confe->horac = $tiempo->format('Y-m-d H:i');   
                 $confe->fechalimite =  $confe->limithour->format('Y-m-d H:i');  
-                $conferencia[$key] = $confe->only(['id','descripcion','fechalimite','nombre','entidad','time']);
+                $conferencia[$key] = $confe->only(['id','descripcion','fechalimite','nombre','entidad','horac']);
 
             }
 
