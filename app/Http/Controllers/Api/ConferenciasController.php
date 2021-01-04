@@ -40,9 +40,16 @@ function __construct(){
     public function historial()
     {
         
-            $conferencia = Conferencia::where('deleted',1)->where('estado',0)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
+            $conf = Conferencia::where('deleted',1)->where('estado',0)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
 
-            /* DEVUELVE ARRAY SIN VALORES EN CASO NO HAY */
+            $conferencia = [];
+
+        foreach ($conf as $key => $confe) { 
+                $confe->fechalimite =  $confe->limithour->format('Y-m-d H:i');  
+                $conferencia[$key] = $confe->only(['id','descripcion','fechalimite','nombre','entidad']);
+
+            }
+
                return response()->json($conferencia, 200);
     }
 
