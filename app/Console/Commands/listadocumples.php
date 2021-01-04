@@ -92,7 +92,8 @@ class listadocumples extends Command
                 }
 
                 fcm()
-                ->to($recipients) 
+                ->to($recipients)
+                ->priority('high')
                 ->notification([
                     'title' => 'Cumpleaños para mañana 🎊',
                     'body' => "Si deseas escribele un mensaje, le llegara una carta. "."\n".$cumpleanero,

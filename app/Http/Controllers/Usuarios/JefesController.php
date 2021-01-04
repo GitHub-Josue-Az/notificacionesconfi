@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Usuarios;
 
 use App\Http\Controllers\Controller;
 use App\Models\Jefe;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -113,6 +114,9 @@ class JefesController extends Controller
           "deleted"=> 0,
          ]);
         
+        /*User::where('jefes_id',$idjef)->update([
+            "jefes_id"=>1
+        ]);*/
        
          return redirect()->route('admin.jefes.index');
     }

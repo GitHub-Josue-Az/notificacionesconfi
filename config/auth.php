@@ -25,7 +25,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\User::where('deleted',1),
         ],
 
         //  where('deleted',1)

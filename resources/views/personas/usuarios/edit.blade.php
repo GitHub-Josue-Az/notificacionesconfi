@@ -45,12 +45,6 @@
                                  {!! $errors->first('password','<span class=error>:message</span>') !!}
                                 </div>
 
-                                <div class="form-group has-float-label">
-                                   <input type="password" value="{{old('password_confirmation')}}" class="form-control @error('password_confirmation') is-invalid @enderror" maxlength="50"  id="password_confirmation" name="password_confirmation" placeholder="">
-                                   <span>password_confirmation</span>
-                                 {!! $errors->first('password_confirmation','<span class=error>:message</span>') !!}
-                                </div>
-
 
                                 <div class="form-group has-float-label">
                                    <input type="number" value="{{$usuarios->numero}}" class="form-control @error('numero') is-invalid @enderror" maxlength="50"  id="numero" name="numero" placeholder="">
