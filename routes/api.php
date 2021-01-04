@@ -8,8 +8,6 @@ Route::post('login','Api\AuthController@login');
 //RESOURCE TIENE VARIAS RUTAS
 Route::resource('productos', 'Api\ProductosController');
 
-Route::get('cumpleslist', 'Api\CumpleanosController@cumpleslist');
-Route::get('conferenciaslist', 'Api\ConferenciasController@conferenciaslist');
 
 Route::middleware('auth:api')->group(function () 
 {

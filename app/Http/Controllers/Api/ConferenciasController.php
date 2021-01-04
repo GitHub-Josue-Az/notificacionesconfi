@@ -32,7 +32,7 @@ function __construct(){
 
             }
 
-             dd($conferencia);
+             /*dd($conferencia);*/
 
                return response()->json($conferencia, 200);
     }
