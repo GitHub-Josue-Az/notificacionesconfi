@@ -8,9 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Conferencia extends Model
 {
 
+     protected $table = 'conferencias';
+
 	protected $fillable = [
         'descripcion','estado','deleted','capacidad','limithour','imagen','nombre','created_at','entidad'
     ]; 
+
+      protected $dates = [
+        'limithour',
+    ];
+
+    protected $cast = [
+        'limithour' => 'datetime:Y-m-d H:i',
+    ];
 
 
     public function users(){
@@ -18,9 +28,6 @@ class Conferencia extends Model
        return $this->belongsToMany(User::class,'conferencias_users','conferencias_id','users_id')->as('confer_user')->withPivot('estado','deleted')->withTimestamps();
    }
 
-    protected $dates = [
-        'limithour',
-    ];
 
     public function getEstadoTagAttribute() {
 

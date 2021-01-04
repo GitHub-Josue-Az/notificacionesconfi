@@ -27,6 +27,8 @@ class ConferenciasController extends Controller
 
   $conferencia = Conferencia::where('deleted',1)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
 
+  /*dd($conferencia[4]->limithour);*/
+
             return view('conferencias.conferencia.index',compact('conferencia'));
     }
 
@@ -50,6 +52,7 @@ class ConferenciasController extends Controller
         ]);
 
          $dt = new Carbon($request->limit);
+
         $request->request->add(['limithour' => $dt]);
          /*$estadi = $request->exists('act') ? 1:0 ;*/
 

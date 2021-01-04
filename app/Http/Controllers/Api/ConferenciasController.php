@@ -12,30 +12,35 @@ use Carbon\Carbon;
 class ConferenciasController extends Controller
 {
     
+function __construct(){
+         Carbon::setLocale('es');
+    }
    
 
     public function conferenciaslist()
     {
         
-            $conf = Conferencia::where('deleted',1)->where('estado',1)->orderByRaw('DATE_FORMAT(limithour, "%m-%d") DESC')->get();
+            $conf = Conferencia::where('deleted',1)->where('estado',1)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
 
              $conferencia = [];
 
         foreach ($conf as $key => $confe) {
                 $tiempo = $confe->limithour->addDays(2);
-                $confe->time = $tiempo;
-                $conferencia[$key] = $confe->only(['id','descripcion','limithour','nombre','entidad','time']);
+                $confe->time = $tiempo->format('Y-m-d H:i');   
+                $confe->limite =$confe->limithour->format('Y-m-d H:i');  
+                $conferencia[$key] = $confe->only(['id','descripcion','limite','nombre','entidad','time']);
+
             }
 
+             /*dd($conferencia);*/
 
-            /* DEVUELVE ARRAY SIN VALORES EN CASO NO HAY */
                return response()->json($conferencia, 200);
     }
 
     public function historial()
     {
         
-            $conferencia = Conferencia::where('deleted',1)->where('estado',0)->orderByRaw('DATE_FORMAT(limithour, "%m-%d") DESC')->get();
+            $conferencia = Conferencia::where('deleted',1)->where('estado',0)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
 
             /* DEVUELVE ARRAY SIN VALORES EN CASO NO HAY */
                return response()->json($conferencia, 200);
