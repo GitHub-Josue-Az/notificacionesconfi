@@ -20,7 +20,7 @@ function __construct(){
     public function conferenciaslist()
     {
         
-            $conf = Conferencia::where('deleted',1)->where('estado',1)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
+            $conf = Conferencia::where('deleted',1)->where('estado',1)->orderByRaw('DATE_FORMAT(created_at,"%y-%m-%d") DESC')->get();
 
              $conferencia = [];
 
@@ -32,7 +32,7 @@ function __construct(){
 
             }
 
-           /*  dd($conferencia);*/
+             dd($conferencia);
 
                return response()->json($conferencia, 200);
     }
@@ -40,7 +40,7 @@ function __construct(){
     public function historial()
     {
         
-            $conf = Conferencia::where('deleted',1)->where('estado',0)->orderByRaw('DATE_FORMAT(created_at, "%m-%d") DESC')->get();
+            $conf = Conferencia::where('deleted',1)->where('estado',0)->orderByRaw('DATE_FORMAT(created_at, "%y-%m-%d") DESC')->get();
 
             $conferencia = [];
 
