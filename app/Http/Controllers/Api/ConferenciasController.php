@@ -27,12 +27,12 @@ function __construct(){
         foreach ($conf as $key => $confe) {
                 $tiempo = $confe->limithour->addDays(2);
                 $confe->time = $tiempo->format('Y-m-d H:i');   
-                $confe->limite =$confe->limithour->format('Y-m-d H:i');  
-                $conferencia[$key] = $confe->only(['id','descripcion','limite','nombre','entidad','time']);
+                $confe->fechalimite =  $confe->limithour->format('Y-m-d H:i');  
+                $conferencia[$key] = $confe->only(['id','descripcion','fechalimite','nombre','entidad','time']);
 
             }
 
-             /*dd($conferencia);*/
+           /*  dd($conferencia);*/
 
                return response()->json($conferencia, 200);
     }

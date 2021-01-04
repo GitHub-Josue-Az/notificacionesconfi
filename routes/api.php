@@ -7,7 +7,7 @@ Route::post('login','Api\AuthController@login');
 
 //RESOURCE TIENE VARIAS RUTAS
 Route::resource('productos', 'Api\ProductosController');
-
+/*Route::get('conferenciaslist', 'Api\ConferenciasController@conferenciaslist');*/
 
 Route::middleware('auth:api')->group(function () 
 {
@@ -19,8 +19,8 @@ Route::middleware('auth:api')->group(function ()
 	/* Conferencias */
 	Route::get('conferenciaslist', 'Api\ConferenciasController@conferenciaslist');
 	Route::get('historial', 'Api\ConferenciasController@historial');
-	Route::post('conferenciasolicitud','Api\ConferenciasController@solicitudes');
-
+	/*Route::post('conferenciasolicitud','Api\ConferenciasController@solicitudes');
+*/
 	/* FELICITACIONES */
 	Route::get('felicitadoreslist', 'Api\FelicitacionesController@felicitadoreslist');
 	Route::get('users', 'Api\AuthController@users');

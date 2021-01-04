@@ -18,9 +18,9 @@ class Conferencia extends Model
         'limithour',
     ];
 
-    protected $cast = [
+   /* protected $cast = [
         'limithour' => 'datetime:Y-m-d H:i',
-    ];
+    ];*/
 
 
     public function users(){
