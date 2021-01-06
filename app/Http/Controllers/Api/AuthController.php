@@ -16,6 +16,7 @@ class AuthController extends Controller
 		    	$credential = [
                    'codigo' => $request->input('codigo'),
                    'password' => $request->input('password'),
+                   'deleted' => 1,
             ];
 
 
