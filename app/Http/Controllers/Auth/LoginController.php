@@ -47,14 +47,13 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-       $credential = [
+        $credential = [
                    'codigo' => $request->input('codigo'),
                    'password' => $request->input('password'),
                    'deleted' => 1,
             ];
 
-            //new change
-            if(Auth::guard('api')->attempt($credential)) {
+        if (Auth::attempt($credential)) {
             // Authentication passed...
             return redirect()->route('home');
         }
