@@ -53,7 +53,7 @@ class LoginController extends Controller
                    'deleted' => 1,
             ];
 
-
+            //new change
             if(Auth::guard('api')->attempt($credential)) {
             // Authentication passed...
             return redirect()->route('home');
