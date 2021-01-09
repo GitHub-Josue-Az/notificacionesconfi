@@ -133,7 +133,7 @@ class ConferenciasController extends Controller
 
         $request->validate([
            'nombre' => 'required|max:100',
-            'descripcion' => 'required|max:100',
+            /*'descripcion' => 'required|max:100',*/
             'limit' => 'required|max:100',
             'entidad' =>'required|max:100', 
         ]);

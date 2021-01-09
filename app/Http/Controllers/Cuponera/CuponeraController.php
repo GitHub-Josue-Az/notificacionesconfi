@@ -35,6 +35,7 @@ class CuponeraController extends Controller
                  'contacto' => 'required',
                  /*'aplicable' => 'required',*/
                  'detalles' => 'required',
+                 'telefono' => 'max:10',
                  'campos_id' => 'required',
             ]);
 
@@ -54,6 +55,8 @@ class CuponeraController extends Controller
     
      public function create()
     {
+
+        /*$campos = Campo::where('deleted',1)->where('id','<>',2)->get();*/
 
         $campos = Campo::where('deleted',1)->where('id','<>',2)->get();
         
@@ -76,7 +79,7 @@ class CuponeraController extends Controller
        
        
         $cupones=Cupone::findOrFail($id);
-        $campos = Campo::where('deleted',1)->where('id','<>',2)->get();
+        $campos = Campo::where('deleted',1)->get();
       
          return view('cuponera.cupones.edit',compact('cupones','campos'));
         
@@ -93,6 +96,7 @@ class CuponeraController extends Controller
                 /* 'aplicable' => 'required',*/
                  'detalles' => 'required',
                  'campos_id' => 'required',
+                 'telefono' => 'max:10',
             ]);
       
          $cupone = Cupone::findOrFail($id);

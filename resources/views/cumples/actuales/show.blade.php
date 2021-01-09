@@ -34,7 +34,7 @@
                             <th width="110">Nombres</th>
                             <th width="100">Jefe</th>
                             <th>Descripción</th>
-                            <th></th><th></th><th></th><th></th>
+                            <th></th><th></th><th></th><th></th><th></th>
                             <th width="150">Modificar comentario</th>
                             <th width="80">Eliminar</th>
                         </tr>

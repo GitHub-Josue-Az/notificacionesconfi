@@ -38,8 +38,10 @@
                                              <p class="text-muted text-small mb-2">Nombre</p>
                                             <p class="mb-3"> {{ $conferencia->nombre }} </p>
 
+                                             @if (isset( $conferencia->descripcion) )
                                             <p class="text-muted text-small mb-2">Descripción</p>
                                             <p class="mb-3"> {{ $conferencia->descripcion }} </p>
+                                            @endif
 
                                           {{--   <p class="text-muted text-small mb-2">Capacidad</p>
                                             <p class="mb-3"> {{ $conferencia->capacidad }} </p> --}}

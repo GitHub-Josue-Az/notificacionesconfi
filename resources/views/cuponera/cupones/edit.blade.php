@@ -81,7 +81,7 @@
                                  @endforeach
                               </select> 
                             {!! $errors->first('campos_id','<span class=error>:message</span>') !!}
-                                    <span>Generos</span>
+                                    <span>Campos</span>
                                 </div>
 
                                  <button class="btn btn-success" type="submit">Editar</button>
