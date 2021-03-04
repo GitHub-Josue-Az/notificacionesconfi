@@ -27,7 +27,7 @@ class FelicitacionesController extends Controller
 
       //desc
       	 $felicitadores = Comfelicitado::where('users_id',$users->id)->where('deleted',1)
-          ->orderByRaw('DATE_FORMAT(created_at, "%m-%d") ')->get();
+          ->orderByRaw('DATE_FORMAT(created_at, "%m-%d") ASC')->get();
 
         $moldeado = [];
 
