@@ -172,6 +172,7 @@ class CumplesController extends Controller
 
             if (count($image) > 0 ){
                    Mail::to($usuario->email)
+                   //JEFE 
                     ->bcc(['ruthalva73@gmail.com'])
                     ->queue(new Tarjeta($usuario));
 
