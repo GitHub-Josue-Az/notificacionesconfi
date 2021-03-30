@@ -27,6 +27,12 @@
                 <div class="card mb-4">
                         <div class="card-body">
 
+                        <div class="form-group has-float-label">
+             <input type="file" value="{{old('imag')}}" class="form-control @error('imag') is-invalid @enderror" maxlength="50"  id="imag" name="imag" placeholder="">
+                                    <span> Imagen </span>
+                           {!! $errors->first('imag','<span class=error>:message</span>') !!}
+                     </div> 
+
                       <div class="form-group has-float-label">
                                    <input type="text" value="{{ $usuarios->nombres}}" class="form-control @error('nombres') is-invalid @enderror" maxlength="50"  id="nombres" name="nombres" placeholder="">
                                     <span>Nombres y apellidos</span>

@@ -12,6 +12,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UsuariosController extends Controller
 {
@@ -36,6 +37,7 @@ class UsuariosController extends Controller
     {
        
            $request->validate([
+            'imag' => 'mimes:jpeg,png,jpg,gif,svg|max:800|dimensions:min_width=100,min_height=100,max_width=750,max_height=800',
             'nombres' => 'required|max:100',
             'codigo' => 'required|max:100|unique:users',
             'password' => 'required|min:3|confirmed',
@@ -49,15 +51,14 @@ class UsuariosController extends Controller
 
         /*$request->request->add(['roles_id' => $request->tipo]); */
         
-        
-        $user = User::create($request->all());
+        if($request->hasFile('imag') ){
+               $imager = $request->file('imag')->store('usuariosimg');
+            $request->merge(['perfil' => $imager]);
 
-        
-        Cumple::create(['users_id' => $user->id,'fechacumples' => $dt ]);    
-
-       
-        Felicitadore::create(['users_id' => $user->id]);
-        
+             $user = User::create($request->all());        
+             Cumple::create(['users_id' => $user->id,'fechacumples' => $dt ]);    
+             Felicitadore::create(['users_id' => $user->id]);       
+        }
 
         return redirect()->route('admin.usuarios.index')->with('success', 'Registro guardado satisfactoriamente');
     }
@@ -97,6 +98,7 @@ class UsuariosController extends Controller
     {
      
          $request->validate([
+            'imag' => 'mimes:jpeg,png,jpg,gif,svg|max:800|dimensions:min_width=100,min_height=100,max_width=750,max_height=800',
             'nombres' => 'required|max:100',
             'codigo' => 'max:100|unique:users',
             'jefes_id' => 'required|max:100',
@@ -106,6 +108,16 @@ class UsuariosController extends Controller
         ]);
 
         $user = User::findOrFail($id);
+
+        if($request->hasFile('imag') ){
+               $imager = $request->file('imag')->store('cupones');
+            $request->merge(['perfil' => $imager]); 
+        }
+        
+        if (is_null($request->imag)) {
+            $request->request->remove('imag');
+        }
+
 
         if($request->get('codigo') == ''){
              $request->request->remove('codigo');
@@ -163,6 +175,21 @@ class UsuariosController extends Controller
         return redirect()->route('usuarios.index'); */   
         
     }
+
+    
+     public function image($id) {
+        
+                $usuario = User::findOrFail($id);
+        
+                 $content = Storage::get($usuario->perfil);
+                 $mimetype = Storage::mimeType($usuario->perfil);
+                    $size = Storage::size($usuario->perfil);
+        
+                return response($content)   // https://laravel.com/docs/5.4/responses
+                         ->header('Content-Type', $mimetype)
+                           ->header('Content-Length', $size);
+            }
+
 
 
 }

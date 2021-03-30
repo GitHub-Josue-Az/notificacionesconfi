@@ -43,6 +43,7 @@ Route::get('prutrue', 'HomeController@prutrue')->name('prutrue');*/
 
 Route::get('cuponera/{id}/image', 'Cuponera\CuponeraController@image')->name('cuponera.image');	
 Route::get('confe/{id}/image', 'Conferencias\ConferenciasController@image')->name('confe.image');	 //IMAGEN
+Route::get('usuario/{id}/image', 'Usuarios\UsuariosController@image')->name('usuario.imag');	 //IMAGEN
 Route::get('tarjeta/{id}/image', 'Cumples\ImagesController@image')->name('tarjeta.image');	 //IMAGEN
 Route::get('downloadima/{id}', 'Cumples\ImagesController@downloadima')->name('tarjeta.download');	 //DOWNLOAD
 

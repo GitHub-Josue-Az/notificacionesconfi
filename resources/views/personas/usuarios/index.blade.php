@@ -24,10 +24,11 @@
 
                                 <thead>
                                    <tr>
+                                    <th>Imagen</th>
                             <th>Codigo</th>
                             <th>Nombres</th>
                             <th>Jefe</th>
-                            <th>Cumpleaños</th><th></th><th></th><th></th>
+                            <th>Cumpleaños</th><th></th><th></th>
                             <th width="80">Mostrar</th>
                             <th width="80">Editar</th>
                             <th width="80">Eliminar</th>
@@ -38,10 +39,16 @@
                                 <tbody>
                         @foreach ($usuarios as $user)
                              <tr>
+                          <td> 
+                            @if (isset($user->perfil))
+                                <img  src="{{route('usuario.imag', [$user->id])}}" width="130" height="120" >
+                            @endif
+                          </td>
+                            
                             <td>{{ $user->codigo }}</td>
                             <td>{{ $user->nombres }}</td>
                             <td>{{ $user->jefe->nombres }}</td>
-                            <td>{{ $user->cumple->fechacumples }}</td><td></td><td></td><td></td>
+                            <td>{{ $user->cumple->fechacumples }}</td><td></td><td></td>
                              <td><a href="{{ route('admin.usuarios.show', [$user->id]) }}" class="btn btn-info"><i class="fas fa-info"></i> Mostrar</a></td>
                             <td><a href="{{ route('admin.usuarios.edit', [$user->id]) }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a></td>
                             <td><form style="display:inline" method='POST' action="{{ route('admin.usu.update2',[$user->id]) }}">

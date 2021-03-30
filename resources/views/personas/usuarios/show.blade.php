@@ -29,6 +29,12 @@
 
                                             <hr>
 
+                            @if (isset($usuarios->perfil))
+                              <p class="text-muted text-small mb-2">Imagen</p>
+                                <img  src="{{route('usuario.imag', [$usuarios->id])}}" width="130" height="120" >
+                            @endif
+                            
+
                                              <p class="text-muted text-small mb-2">Nombres</p>
                                             <p class="mb-3"> {{ $usuarios->nombres }} </p>
 
