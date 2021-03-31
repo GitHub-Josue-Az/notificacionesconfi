@@ -18,7 +18,7 @@ class UsuariosController extends Controller
 {
 
      function __construct(){
-        $this->middleware('admin');
+      $this->middleware('admin',['except' => ['image']]);
     }
     
      public function index()
