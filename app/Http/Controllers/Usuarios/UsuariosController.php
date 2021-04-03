@@ -18,7 +18,7 @@ class UsuariosController extends Controller
 {
 
      function __construct(){
-      $this->middleware('admin',['except' => ['image']]);
+      $this->middleware('admin',['except' => ['image','imagefeli']]);
     }
     
      public function index()
@@ -63,7 +63,7 @@ class UsuariosController extends Controller
         return redirect()->route('admin.usuarios.index')->with('success', 'Registro guardado satisfactoriamente');
     }
    
-   
+
     
      public function create()
     {
@@ -181,11 +181,50 @@ class UsuariosController extends Controller
         
                 $usuario = User::findOrFail($id);
         
+                // Si en caso es null entonces mostrar una imagen opcional 
+                if (is_null($usuario->perfil)) {
+                   
+                     $content = Storage::get("usuariosimg/usernull.png");
+                    $mimetype = Storage::mimeType("usuariosimg/usernull.png");
+                    $size = Storage::size("usuariosimg/usernull.png");
+        
+                return response($content)   
+                         ->header('Content-Type', $mimetype)
+                           ->header('Content-Length', $size);
+                }
+
                  $content = Storage::get($usuario->perfil);
                  $mimetype = Storage::mimeType($usuario->perfil);
                     $size = Storage::size($usuario->perfil);
         
                 return response($content)   // https://laravel.com/docs/5.4/responses
+                         ->header('Content-Type', $mimetype)
+                           ->header('Content-Length', $size);
+            }
+
+
+     public function imagefeli($id) {
+        
+                $felicitador = Felicitadore::findOrFail($id);
+                $usuario = $felicitador->user()->first();
+
+                // Si en caso es null entonces mostrar una imagen opcional 
+                if (is_null($usuario->perfil)) {
+
+                     $content = Storage::get("usuariosimg/usernull.png");
+                    $mimetype = Storage::mimeType("usuariosimg/usernull.png");
+                    $size = Storage::size("usuariosimg/usernull.png");
+        
+                return response($content)   
+                         ->header('Content-Type', $mimetype)
+                           ->header('Content-Length', $size);
+                }
+
+                 $content = Storage::get($usuario->perfil);
+                 $mimetype = Storage::mimeType($usuario->perfil);
+                    $size = Storage::size($usuario->perfil);
+        
+                return response($content)   
                          ->header('Content-Type', $mimetype)
                            ->header('Content-Length', $size);
             }
