@@ -34,9 +34,11 @@ class FelicitacionesController extends Controller
         foreach ($felicitadores as $key => $felici) {
                 $tiempo = $felici->created_at->diffForHumans(['parts' => 2]);
                 $name = $felici->felicitadore->user->nombres;
+                
                 $felici->felicitador = $name;
                 $felici->time = $tiempo;
-                $moldeado[$key] = $felici->only(['id','descripcion','felicitador','time']);
+                $felici->idfelicitador = $felici->felicitadores_id;
+                $moldeado[$key] = $felici->only(['id','descripcion','felicitador','time','idfelicitador']);
             }
 
 
